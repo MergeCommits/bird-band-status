@@ -38,5 +38,4 @@ export type ExtraInfoCode =
     | 85
     | 87
     | 88
-    | 89
     | 90;
