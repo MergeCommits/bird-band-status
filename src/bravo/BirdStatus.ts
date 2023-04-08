@@ -39,8 +39,6 @@ const statuses = {
 
 type BirdStatusCode = keyof typeof statuses;
 
-const test: BirdStatusCode = 1;
-
 function getAdditionalInformationCode() {
     return 0;
 }
