@@ -13,6 +13,16 @@ describe("basic codes", () => {
     it("should output the provided input code when only one is given", () => {
         expect(getInfoCode(2, [1])).toEqual(1);
     });
+
+    it("should output an aux variant code when there is only one non-aux and one or multiple aux markers", () => {
+        expect(getInfoCode(2, [18, 81])).toEqual(19);
+        expect(getInfoCode(2, [18, 81, 90])).toEqual(19);
+    });
+
+    it("should output 85 when there's one or", () => {
+        expect(getInfoCode(3, [18, 70])).toEqual(85);
+        expect(getInfoCode(3, [18, 70, 87])).toEqual(85);
+    });
 });
 
 describe("inclusion/exclusion exceptions", () => {
@@ -33,8 +43,12 @@ describe("inclusion/exclusion exceptions", () => {
     });
 });
 
-describe("work with aux markers", () => {
-    it.skip("should output the correct code when there are only two auxiliary markers", () => {
-        expect(false);
+describe("other miscellaneous cases", () => {
+    it("385", () => {
+        expect(getInfoCode(3, [14, 18])).toEqual(85);
+    });
+
+    it("325", () => {
+        expect(getInfoCode(3, [2, 80])).toEqual(25);
     });
 });

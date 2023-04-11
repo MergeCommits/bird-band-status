@@ -31,6 +31,20 @@ function getAuxMarkers() {
     );
 }
 
+function getAuxVariantOfNonAuxMarker(
+    nonAuxMarker: InfoInputCode
+): InfoInputCode {
+    for (const [key, value] of Object.entries(infoCodeDetails)) {
+        if ("bling" in value && value.bling === nonAuxMarker) {
+            return Number(key) as InfoInputCode;
+        }
+    }
+
+    throw new Error(
+        `Could not find aux variant of non-aux marker ${nonAuxMarker}`
+    );
+}
+
 function computeInfoCode(inputs: InfoInputCode[]): InfoCode {
     if (inputs.length <= 0) {
         return 0;
@@ -40,9 +54,19 @@ function computeInfoCode(inputs: InfoInputCode[]): InfoCode {
         return inputs[0];
     }
 
-    // const auxMarkers =
+    const allAuxMarkers = getAuxMarkers();
+    if (inputs.every((input) => allAuxMarkers.includes(input))) {
+        return 25;
+    }
 
-    // const multipleAuxOnly = 25
+    const allNonAuxMarkers = getInputCodesThatAreNotAuxMarkers();
+    const nonAuxInputs = inputs.filter((input) =>
+        allNonAuxMarkers.includes(input)
+    );
+    if (nonAuxInputs.length === 1) {
+        const nonAuxInput = nonAuxInputs[0];
+        return getAuxVariantOfNonAuxMarker(nonAuxInput);
+    }
 
     return 85;
 }
