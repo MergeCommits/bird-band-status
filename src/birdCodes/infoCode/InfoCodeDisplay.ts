@@ -1,9 +1,9 @@
 import type {
     InfoCodeDescription,
     InfoCodeDescriptionWithBling,
-} from "birdCodes/infoCode/InfoCodeDetails";
-import { infoCodeDetails } from "birdCodes/infoCode/InfoCodeDetails";
-import type { InfoCode } from "birdCodes/infoCode/ValidInfoCodes";
+} from "birdCodes/infoCode/infoCodeDetails";
+import { infoCodeDetails } from "birdCodes/infoCode/infoCodeDetails";
+import type { InfoCode } from "birdCodes/infoCode/validInfoCodes";
 
 export function displayInfoCode(code: InfoCode): string {
     return code.toString().padStart(2, "0");

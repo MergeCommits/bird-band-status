@@ -1,5 +1,5 @@
-import type { InfoCode } from "birdCodes/infoCode/ValidInfoCodes";
-import type { BirdStatusCode } from "birdCodes/statusCode/ValidStatusCodes";
+import type { InfoCode } from "birdCodes/infoCode/validInfoCodes";
+import type { BirdStatusCode } from "birdCodes/statusCode/validStatusCodes";
 
 export type InfoCodeDescription = {
     shortDescription: string;

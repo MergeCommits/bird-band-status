@@ -1,8 +1,8 @@
 import {
     InfoCodeDoesNotIncludeStatusCodeException,
     InfoCodeExcludesStatusCodeException,
-} from "birdCodes/Errors";
-import { getInfoCode } from "birdCodes/infoCode/InfoCodeLogic";
+} from "birdCodes/errors";
+import { getInfoCode } from "birdCodes/infoCode/infoCodeLogic";
 import { describe, expect, it } from "vitest";
 
 describe("basic codes", () => {

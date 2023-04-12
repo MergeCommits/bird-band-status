@@ -1,17 +1,17 @@
 import {
     InfoCodeDoesNotIncludeStatusCodeException,
     InfoCodeExcludesStatusCodeException,
-} from "birdCodes/Errors";
-import type { InfoCodeDescriptionWithBling } from "birdCodes/infoCode/InfoCodeDetails";
-import { infoCodeDetails } from "birdCodes/infoCode/InfoCodeDetails";
-import { getDisplayInfoCodeDescription } from "birdCodes/infoCode/InfoCodeDisplay";
+} from "birdCodes/errors";
+import type { InfoCodeDescriptionWithBling } from "birdCodes/infoCode/infoCodeDetails";
+import { infoCodeDetails } from "birdCodes/infoCode/infoCodeDetails";
+import { getDisplayInfoCodeDescription } from "birdCodes/infoCode/infoCodeDisplay";
 import type {
     InfoCode,
     InfoInputCode,
-} from "birdCodes/infoCode/ValidInfoCodes";
-import { infoInputCodes } from "birdCodes/infoCode/ValidInfoCodes";
-import type { BirdStatusCode } from "birdCodes/statusCode/ValidStatusCodes";
-import { getObjectEntriesAsArray } from "utils/ObjectUtils";
+} from "birdCodes/infoCode/validInfoCodes";
+import { infoInputCodes } from "birdCodes/infoCode/validInfoCodes";
+import type { BirdStatusCode } from "birdCodes/statusCode/validStatusCodes";
+import { getObjectEntriesAsArray } from "utils/objectUtils";
 
 function getInputCodesThatAreNotAuxMarkers(): InfoInputCode[] {
     return infoInputCodes.filter((code) => {

@@ -1,6 +1,6 @@
-import { displayInfoCode } from "birdCodes/infoCode/InfoCodeDisplay";
-import type { InfoCode } from "birdCodes/infoCode/ValidInfoCodes";
-import type { BirdStatusCode } from "birdCodes/statusCode/ValidStatusCodes";
+import { displayInfoCode } from "birdCodes/infoCode/infoCodeDisplay";
+import type { InfoCode } from "birdCodes/infoCode/validInfoCodes";
+import type { BirdStatusCode } from "birdCodes/statusCode/validStatusCodes";
 
 class BirdStatusInfoCodeMismatchException extends Error {
     public constructor(

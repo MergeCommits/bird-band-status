@@ -1,4 +1,4 @@
-import type { BirdStatusCode } from "birdCodes/statusCode/ValidStatusCodes";
+import type { BirdStatusCode } from "birdCodes/statusCode/validStatusCodes";
 
 type BirdStatusCodeDescription = {
     description: string;

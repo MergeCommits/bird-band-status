@@ -5,7 +5,9 @@ export default {
     theme: {
         extend: {
             colors: {
-                perkDescription: "#aaa9a9",
+                primary: "#19376D",
+                secondary: "#A5D7E8",
+                accent: "#576CBC",
             },
         },
     },
