@@ -5,15 +5,6 @@ import type {
 } from "birdCodes/infoCode/validInfoCodes";
 import type { BirdStatusCode } from "birdCodes/statusCode/validStatusCodes";
 
-export type InfoCodeDescription = {
-    shortDescription: string;
-    longDescription?: string;
-    onlyWith?: BirdStatusCode[];
-    notWith?: BirdStatusCode[];
-    category: InfoCategory;
-    withAuxMarker?: boolean;
-};
-
 type BaseDescription = {
     shortDescription: string;
     longDescription?: string;

@@ -61,6 +61,15 @@ function computeInfoCode(inputs: InfoCodeInput[]): InfoCode {
 
     const allAuxMarkers = getAuxMarkers();
     if (inputs.every((input) => allAuxMarkers.includes(input))) {
+        // 6 and 7 are the only aux markers that have a unique "this plus one or more other aux markers" code
+        if (inputs.includes(6)) {
+            return 29;
+        }
+
+        if (inputs.includes(7)) {
+            return 30;
+        }
+
         return 25;
     }
 

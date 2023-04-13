@@ -59,4 +59,12 @@ describe("other miscellaneous cases", () => {
     it("325", () => {
         expect(getInfoCode(3, [2, 80])).toEqual(25);
     });
+
+    it("329", () => {
+        expect(getInfoCode(3, [3, 6])).toEqual(29);
+    });
+
+    it("330", () => {
+        expect(getInfoCode(3, [4, 7])).toEqual(30);
+    });
 });
