@@ -32,7 +32,11 @@ export function getOutputCodeDetails(code: InfoCode): {
     longDescription?: string;
 } {
     if (code in infoCodeInputDetails) {
-        return infoCodeInputDetails[code as InfoCodeInput];
+        const details = infoCodeInputDetails[code as InfoCodeInput];
+        return {
+            shortDescription: details.shortDescription,
+            longDescription: details.longDescription,
+        };
     }
 
     const nonAuxMarkerVariant = getNonAuxMarkerVariant(code);

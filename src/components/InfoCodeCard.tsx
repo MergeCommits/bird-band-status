@@ -1,10 +1,13 @@
 import { infoCodeInputDetails } from "birdCodes/infoCode/infoCodeDetails";
+import { displayInfoCode } from "birdCodes/infoCode/infoCodeDisplay";
 import type { InfoCodeInput } from "birdCodes/infoCode/validInfoCodes";
 import { useMemo } from "react";
 import type { ReactFunction } from "types/ReactFunction";
+import { classNames } from "utils/tailwindUtils";
 
 type Props = {
     code: InfoCodeInput;
+    enabled: boolean;
     onToggle: (code: InfoCodeInput) => void;
 };
 
@@ -15,20 +18,21 @@ export const InfoCodeCard: ReactFunction<Props> = (props) => {
     );
 
     return (
-        <div
-            className={
-                "flex h-32 w-32 cursor-pointer flex-col items-center justify-center rounded-lg bg-secondary shadow-md hover:bg-accent hover:shadow-lg"
-            }
+        <button
+            className={classNames(
+                "w-full max-w-4xl rounded-md border-2 bg-secondary p-6 hover:bg-secondary-light",
+                props.enabled ? "border-accent" : "border-transparent"
+            )}
             onClick={() => props.onToggle(props.code)}
         >
-            <div className={"flex flex-col items-center justify-center"}>
-                <div className={"text-2xl text-accent"}>
-                    {details.shortDescription}
-                </div>
-                <div className={"text-sm text-accent"}>
-                    {details.longDescription}
-                </div>
-            </div>
-        </div>
+            <h5
+                className={
+                    "mb-2 text-2xl font-bold tracking-tight text-contrast"
+                }
+            >
+                {`${displayInfoCode(props.code)} - ${details.shortDescription}`}
+            </h5>
+            <p>{details.longDescription ?? details.shortDescription + "."}</p>
+        </button>
     );
 };

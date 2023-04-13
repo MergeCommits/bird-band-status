@@ -1,4 +1,3 @@
-import { Tab } from "@headlessui/react";
 import {
     ArchiveBoxArrowDownIcon,
     BeakerIcon,
@@ -7,6 +6,7 @@ import {
     EyeIcon,
     FingerPrintIcon,
 } from "@heroicons/react/20/solid";
+import { useId } from "react";
 import type { ReactFunction } from "types/ReactFunction";
 import { classNames } from "utils/tailwindUtils";
 
@@ -43,39 +43,35 @@ type Props = {
 };
 
 export const CategoryTabs: ReactFunction<Props> = (props) => {
+    const tabGroupID = useId();
+
     return (
-        <div className={"w-full max-w-5xl px-2 py-16 sm:px-0"}>
-            <Tab.Group
-                selectedIndex={allTabs.findIndex(
-                    (tab) => tab.name === props.currentTab
-                )}
-                onChange={(index) => {
-                    props.onTabChange(allTabs[index].name);
-                }}
-            >
-                <Tab.List
-                    className={"flex justify-center space-x-1 rounded-xl p-1"}
+        <div
+            className={
+                "mb-6 mt-8 flex w-full justify-between px-2 py-1 sm:px-0"
+            }
+            id={tabGroupID}
+        >
+            {allTabs.map((category) => (
+                <button
+                    key={category.name}
+                    role={"tab"}
+                    aria-selected={props.currentTab === category.name}
+                    aria-controls={tabGroupID}
+                    onClick={() => props.onTabChange(category.name)}
+                    className={classNames(
+                        "flex w-max items-center gap-2 border-b-2 px-5 py-2.5 text-sm font-medium leading-5 focus:outline-none",
+                        props.currentTab === category.name
+                            ? "border-b-accent font-bold text-accent"
+                            : "rounded-md border-b-transparent hover:bg-white/[0.12]"
+                    )}
                 >
-                    {allTabs.map((category) => (
-                        <Tab
-                            key={category.name}
-                            className={({ selected }) =>
-                                classNames(
-                                    "flex w-max gap-2 border-b-2 px-5 py-2.5 text-sm font-medium leading-5 focus:outline-none",
-                                    selected
-                                        ? "border-b-accent font-bold text-accent"
-                                        : "rounded-md border-b-transparent hover:bg-white/[0.12]"
-                                )
-                            }
-                        >
-                            <span className={"mx-auto block h-5 w-5"}>
-                                {category.icon}
-                            </span>
-                            {category.name}
-                        </Tab>
-                    ))}
-                </Tab.List>
-            </Tab.Group>
+                    <div className={"mx-auto h-5 w-5 shrink-0 basis-5"}>
+                        {category.icon}
+                    </div>
+                    {category.name}
+                </button>
+            ))}
         </div>
     );
 };
