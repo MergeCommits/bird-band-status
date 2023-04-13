@@ -24,7 +24,7 @@ export const StatusCodeSelect: ReactFunction<Props> = (props) => {
             <div className={"mt-1 w-full max-w-xl"}>
                 <Listbox.Button
                     className={
-                        "flex w-full cursor-default justify-between rounded-lg bg-accent px-3 py-2 text-left text-secondary shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm"
+                        "flex w-full cursor-default justify-between rounded-lg bg-secondary px-3 py-2 text-left text-accent shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm"
                     }
                 >
                     <div className={"truncate"}>{currentStatusText}</div>
@@ -51,9 +51,9 @@ export const StatusCodeSelect: ReactFunction<Props> = (props) => {
                                 <Listbox.Option
                                     key={key}
                                     className={({ active }) =>
-                                        `relative cursor-default select-none py-2 pl-10 pr-4 ${
+                                        `group relative cursor-default select-none py-2 pl-10 pr-4 ${
                                             active
-                                                ? "bg-amber-100 text-amber-900"
+                                                ? "bg-accent text-gray-800"
                                                 : "text-accent"
                                         }`
                                     }
@@ -73,7 +73,7 @@ export const StatusCodeSelect: ReactFunction<Props> = (props) => {
                                             {selected ? (
                                                 <span
                                                     className={
-                                                        "absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600"
+                                                        "absolute inset-y-0 left-0 flex items-center pl-3 text-white group-hover:text-black"
                                                     }
                                                 >
                                                     <CheckIcon

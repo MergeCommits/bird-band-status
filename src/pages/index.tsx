@@ -39,7 +39,7 @@ const Home: NextPage = () => {
             <div className={"min-h-screen bg-primary"}>
                 <main
                     className={
-                        "container mx-auto flex flex-col items-center justify-center p-4 text-secondary"
+                        "container mx-auto flex flex-col items-center justify-center p-4 text-gray-300"
                     }
                 >
                     <h1 className={"text-3xl font-extrabold leading-normal "}>

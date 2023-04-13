@@ -2,7 +2,10 @@ import { Tab } from "@headlessui/react";
 import {
     ArchiveBoxArrowDownIcon,
     BeakerIcon,
+    CpuChipIcon,
     EllipsisHorizontalCircleIcon,
+    EyeIcon,
+    FingerPrintIcon,
 } from "@heroicons/react/20/solid";
 import type { ReactFunction } from "types/ReactFunction";
 import { classNames } from "utils/tailwindUtils";
@@ -26,6 +29,18 @@ export const CategoryTabs: ReactFunction<Props> = (props) => {
             name: "Capture Method",
             icon: <ArchiveBoxArrowDownIcon />,
         },
+        {
+            name: "Visual Aux Marker",
+            icon: <EyeIcon />,
+        },
+        {
+            name: "Electronic Aux Marker",
+            icon: <CpuChipIcon />,
+        },
+        {
+            name: "Other",
+            icon: <FingerPrintIcon />,
+        },
     ];
 
     return (
@@ -46,14 +61,14 @@ export const CategoryTabs: ReactFunction<Props> = (props) => {
                             key={category.name}
                             className={({ selected }) =>
                                 classNames(
-                                    "w-max border-b-2 px-5 py-2.5 text-sm font-medium leading-5 focus:outline-none",
+                                    "flex w-max gap-2 border-b-2 px-5 py-2.5 text-sm font-medium leading-5 focus:outline-none",
                                     selected
-                                        ? "border-b-secondary font-bold text-secondary"
-                                        : "rounded-md border-b-transparent text-white hover:bg-white/[0.12]"
+                                        ? "border-b-accent font-bold text-accent"
+                                        : "rounded-md border-b-transparent hover:bg-white/[0.12]"
                                 )
                             }
                         >
-                            <span className={"h-6 w-6 text-blue-500"}>
+                            <span className={"mx-auto block h-5 w-5"}>
                                 {category.icon}
                             </span>
                             {category.name}
@@ -65,7 +80,7 @@ export const CategoryTabs: ReactFunction<Props> = (props) => {
                         <Tab.Panel
                             key={idx}
                             className={classNames(
-                                "rounded-xl bg-accent p-3",
+                                "rounded-xl bg-secondary p-3",
                                 "ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
                             )}
                         >
