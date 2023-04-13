@@ -2,50 +2,55 @@ import {
     InfoCodeDoesNotIncludeStatusCodeException,
     InfoCodeExcludesStatusCodeException,
 } from "birdCodes/errors";
-import type { InfoCodeDescriptionWithBling } from "birdCodes/infoCode/infoCodeDetails";
-import { infoCodeDetails } from "birdCodes/infoCode/infoCodeDetails";
-import { getDisplayInfoCodeDescription } from "birdCodes/infoCode/infoCodeDisplay";
+import { infoCodeInputDetails } from "birdCodes/infoCode/infoCodeDetails";
 import type {
     InfoCode,
-    InfoInputCode,
+    InfoCodeInput,
 } from "birdCodes/infoCode/validInfoCodes";
-import { infoInputCodes } from "birdCodes/infoCode/validInfoCodes";
 import type { BirdStatusCode } from "birdCodes/statusCode/validStatusCodes";
-import { getObjectEntriesAsArray } from "utils/objectUtils";
 
-function getInputCodesThatAreNotAuxMarkers(): InfoInputCode[] {
-    return infoInputCodes.filter((code) => {
-        const blingEntries = (
-            getObjectEntriesAsArray(infoCodeDetails).filter(
-                (detail) => "bling" in detail
-            ) as InfoCodeDescriptionWithBling[]
-        ).map((detail) => detail.bling);
-
-        return blingEntries.includes(code);
-    });
+function getInputCodesThatAreNotAuxMarkers(): InfoCodeInput[] {
+    return Object.entries(infoCodeInputDetails)
+        .filter(
+            ([, value]) =>
+                value.category !== "Visual Aux Marker" &&
+                value.category !== "Electronic Aux Marker"
+        )
+        .map(([key]) => Number(key) as InfoCodeInput);
 }
 
 function getAuxMarkers() {
-    return infoInputCodes.filter(
-        (code) => !getInputCodesThatAreNotAuxMarkers().includes(code)
-    );
+    return Object.entries(infoCodeInputDetails)
+        .filter(
+            ([, value]) =>
+                value.category === "Visual Aux Marker" ||
+                value.category === "Electronic Aux Marker"
+        )
+        .map(([key]) => Number(key) as InfoCodeInput);
 }
 
-function getAuxVariantOfNonAuxMarker(
-    nonAuxMarker: InfoInputCode
-): InfoInputCode {
-    for (const [key, value] of Object.entries(infoCodeDetails)) {
-        if ("bling" in value && value.bling === nonAuxMarker) {
-            return Number(key) as InfoInputCode;
-        }
+function getAuxVariantOfNonAuxMarker(code: InfoCodeInput): InfoCode {
+    const candidate = infoCodeInputDetails[code].auxMarkerVariant;
+    if (candidate) {
+        return candidate;
     }
 
-    throw new Error(
-        `Could not find aux variant of non-aux marker ${nonAuxMarker}`
-    );
+    throw new Error(`Info code "${code}" is an aux marker`);
 }
 
-function computeInfoCode(inputs: InfoInputCode[]): InfoCode {
+export function getNonAuxMarkerVariant(code: InfoCode): InfoCodeInput | null {
+    const nonAuxVariant = Object.entries(infoCodeInputDetails)
+        .find(([, infoDetail]) => infoDetail.auxMarkerVariant === code)
+        ?.map((key) => Number(key) as InfoCodeInput)[0];
+
+    if (nonAuxVariant) {
+        return nonAuxVariant;
+    }
+
+    return null;
+}
+
+function computeInfoCode(inputs: InfoCodeInput[]): InfoCode {
     if (inputs.length <= 0) {
         return 0;
     }
@@ -71,12 +76,39 @@ function computeInfoCode(inputs: InfoInputCode[]): InfoCode {
     return 85;
 }
 
+function getIncludeExcludeLists(infoCode: InfoCode): {
+    onlyWith?: BirdStatusCode[];
+    notWith?: BirdStatusCode[];
+} {
+    if (infoCode in infoCodeInputDetails) {
+        const infoDetail = infoCodeInputDetails[infoCode as InfoCodeInput];
+
+        return {
+            onlyWith: infoDetail.onlyWith,
+            notWith: infoDetail.notWith,
+        };
+    }
+
+    const nonAuxVariant = getNonAuxMarkerVariant(infoCode);
+    if (nonAuxVariant !== null) {
+        const infoDetail = infoCodeInputDetails[nonAuxVariant as InfoCodeInput];
+
+        return {
+            onlyWith: infoDetail.onlyWith,
+            notWith: infoDetail.notWith,
+        };
+    }
+
+    return {};
+}
+
 export function getInfoCode(
     statusCode: BirdStatusCode,
-    inputs: InfoInputCode[]
+    inputs: InfoCodeInput[]
 ): InfoCode {
     const infoCode = computeInfoCode(inputs);
-    const infoDetail = getDisplayInfoCodeDescription()[infoCode];
+
+    const infoDetail = getIncludeExcludeLists(infoCode);
 
     if (infoDetail.onlyWith && !infoDetail.onlyWith.includes(statusCode)) {
         throw new InfoCodeDoesNotIncludeStatusCodeException(

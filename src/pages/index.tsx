@@ -1,5 +1,5 @@
 import type { InfoCategory } from "birdCodes/infoCode/infoCategories";
-import type { InfoInputCode } from "birdCodes/infoCode/validInfoCodes";
+import type { InfoCodeInput } from "birdCodes/infoCode/validInfoCodes";
 import type { BirdStatusCode } from "birdCodes/statusCode/validStatusCodes";
 import { CategoryTabs } from "components/CategoryTabs";
 import { StatusCodeSelect } from "components/StatusCodeSelect";
@@ -20,8 +20,8 @@ const Home: NextPage = () => {
         setCurrentCategory(cat as InfoCategory | "All");
     };
 
-    const [inputCodes, setInputCode] = useState<InfoInputCode[]>([]);
-    const inputCodeToggleHandler = (code: InfoInputCode) => {
+    const [inputCodes, setInputCode] = useState<InfoCodeInput[]>([]);
+    const inputCodeToggleHandler = (code: InfoCodeInput) => {
         setInputCode((prev) =>
             prev.includes(code)
                 ? prev.filter((c) => c !== code)

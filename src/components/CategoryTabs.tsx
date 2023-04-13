@@ -10,39 +10,39 @@ import {
 import type { ReactFunction } from "types/ReactFunction";
 import { classNames } from "utils/tailwindUtils";
 
+const allTabs = [
+    {
+        name: "All",
+        icon: <EllipsisHorizontalCircleIcon />,
+    },
+    {
+        name: "Sample",
+        icon: <BeakerIcon />,
+    },
+    {
+        name: "Capture Method",
+        icon: <ArchiveBoxArrowDownIcon />,
+    },
+    {
+        name: "Visual Aux Marker",
+        icon: <EyeIcon />,
+    },
+    {
+        name: "Electronic Aux Marker",
+        icon: <CpuChipIcon />,
+    },
+    {
+        name: "Other",
+        icon: <FingerPrintIcon />,
+    },
+];
+
 type Props = {
     currentTab: string;
     onTabChange: (tab: string) => void;
 };
 
 export const CategoryTabs: ReactFunction<Props> = (props) => {
-    const allTabs = [
-        {
-            name: "All",
-            icon: <EllipsisHorizontalCircleIcon />,
-        },
-        {
-            name: "Sample",
-            icon: <BeakerIcon />,
-        },
-        {
-            name: "Capture Method",
-            icon: <ArchiveBoxArrowDownIcon />,
-        },
-        {
-            name: "Visual Aux Marker",
-            icon: <EyeIcon />,
-        },
-        {
-            name: "Electronic Aux Marker",
-            icon: <CpuChipIcon />,
-        },
-        {
-            name: "Other",
-            icon: <FingerPrintIcon />,
-        },
-    ];
-
     return (
         <div className={"w-full max-w-5xl px-2 py-16 sm:px-0"}>
             <Tab.Group
@@ -75,48 +75,6 @@ export const CategoryTabs: ReactFunction<Props> = (props) => {
                         </Tab>
                     ))}
                 </Tab.List>
-                <Tab.Panels className={"mt-2 flex justify-center"}>
-                    {allTabs.map((posts, idx) => (
-                        <Tab.Panel
-                            key={idx}
-                            className={classNames(
-                                "rounded-xl bg-secondary p-3",
-                                "ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
-                            )}
-                        >
-                            <ul>
-                                {/* {posts.map((post) => ( */}
-                                <li className={"rounded-md p-3"}>
-                                    <h3
-                                        className={
-                                            "text-sm font-medium leading-5"
-                                        }
-                                    >
-                                        {"post.title"}
-                                    </h3>
-
-                                    <ul
-                                        className={
-                                            "mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-800"
-                                        }
-                                    >
-                                        <li>{"post.date"}</li>
-                                        <li>&middot;</li>
-                                        <li>
-                                            {"post.commentCount"} {"comments"}
-                                        </li>
-                                        <li>&middot;</li>
-                                        <li>
-                                            {"post.shareCount"}
-                                            {" shares"}
-                                        </li>
-                                    </ul>
-                                </li>
-                                {/* ))} */}
-                            </ul>
-                        </Tab.Panel>
-                    ))}
-                </Tab.Panels>
             </Tab.Group>
         </div>
     );
