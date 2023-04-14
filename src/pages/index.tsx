@@ -11,7 +11,7 @@ import Head from "next/head";
 import { useMemo, useState } from "react";
 
 const Home: NextPage = () => {
-    const [statusCode, setStatusCode] = useState<BirdStatusCode>(2);
+    const [statusCode, setStatusCode] = useState<BirdStatusCode>(3);
     const statusCodeHandler = (code: BirdStatusCode) => {
         setStatusCode(code);
     };

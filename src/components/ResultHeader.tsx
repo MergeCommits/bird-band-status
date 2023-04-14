@@ -1,3 +1,4 @@
+import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/20/solid";
 import {
     displayInfoCode,
     getOutputCodeDetails,
@@ -5,7 +6,7 @@ import {
 import { getInfoCode } from "birdCodes/infoCode/infoCodeLogic";
 import type { InfoCodeInput } from "birdCodes/infoCode/validInfoCodes";
 import type { BirdStatusCode } from "birdCodes/statusCode/validStatusCodes";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import type { ReactFunction } from "types/ReactFunction";
 
 function useInfoCodeDetails(
@@ -32,33 +33,63 @@ type Props = {
 };
 
 export const ResultHeader: ReactFunction<Props> = (props) => {
+    const [expandDescription, setExpandDescription] = useState(false);
+
     const [infoCodeDetails, errorMessage] = useInfoCodeDetails(
         props.statusCode,
         props.infoCodes
     );
 
-    return infoCodeDetails === null ? (
-        <p className={"text-red-800"}>{errorMessage}</p>
-    ) : (
+    return (
         <div
             className={
-                "mb-8 flex min-h-[225px] w-full max-w-4xl flex-col items-center rounded-lg bg-secondary p-4"
+                "mb-8 flex w-full max-w-4xl flex-col items-center rounded-lg bg-secondary p-4"
             }
         >
-            <h1 className={"text-8xl"}>
-                {`${props.statusCode}${displayInfoCode(infoCodeDetails.code)}`}
-            </h1>
-            <p>
-                <span className={"font-bold"}>
-                    {infoCodeDetails.shortDescription}
-                </span>
-                {infoCodeDetails.longDescription && (
-                    <>
-                        <br />
-                        {infoCodeDetails.longDescription}
-                    </>
-                )}
-            </p>
+            {infoCodeDetails === null ? (
+                <p className={"text-red-800"}>{errorMessage}</p>
+            ) : (
+                <>
+                    <h1 className={"text-8xl"}>
+                        {`${props.statusCode}${displayInfoCode(
+                            infoCodeDetails.code
+                        )}`}
+                    </h1>
+                    <button
+                        className={
+                            "self-center px-2 py-0.5 text-xs uppercase leading-normal text-white focus:outline-none focus:ring-0"
+                        }
+                        onClick={() => setExpandDescription((prev) => !prev)}
+                    >
+                        <div className={"flex justify-center"}>
+                            {expandDescription ? (
+                                <>
+                                    {"Hide Description"}
+                                    <ChevronUpIcon className={"h-5 w-5"} />
+                                </>
+                            ) : (
+                                <>
+                                    {"Show Description"}
+                                    <ChevronDownIcon className={"h-5 w-5"} />
+                                </>
+                            )}
+                        </div>
+                    </button>
+                    {expandDescription && (
+                        <p>
+                            <span className={"font-bold"}>
+                                {infoCodeDetails.shortDescription}
+                            </span>
+                            {infoCodeDetails.longDescription && (
+                                <>
+                                    <br />
+                                    {infoCodeDetails.longDescription}
+                                </>
+                            )}
+                        </p>
+                    )}
+                </>
+            )}
         </div>
     );
 };

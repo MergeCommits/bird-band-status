@@ -88,7 +88,7 @@ export const infoCodeInputDetails: {
     },
     11: {
         shortDescription: "Sexed by laparotomy or laparoscopy",
-        category: "Sample",
+        category: "Other",
         auxMarkerVariant: 12,
     },
     14: {
@@ -145,7 +145,7 @@ export const infoCodeInputDetails: {
         shortDescription: "Web tagged, usually coded",
         longDescription:
             "Web tagged - Marker must be described in marker-related fields.",
-        category: "Electronic Aux Marker",
+        category: "Visual Aux Marker",
     },
     69: {
         shortDescription: "Flag, streamer, or tab on leg",
@@ -179,8 +179,6 @@ export const infoCodeInputDetails: {
     },
     87: {
         shortDescription: "Captured with drugs or tranquilizers",
-        longDescription:
-            "Miscellaneous (combination or situation not covered by other additional information codes) - An explanation is needed in Remarks. For example, a bird that was color-banded, sexed by laparotomy, and blood-sampled would be 385 with an explanation 385 = C/B, laparotomy, blood sample. All markers must be described in marker-related fields.",
         notWith: [4],
         category: "Capture Method",
         auxMarkerVariant: 88,

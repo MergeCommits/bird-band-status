@@ -22,7 +22,7 @@ export const StatusCodeSelect: ReactFunction<Props> = (props) => {
             <select
                 id={birdStatusID}
                 className={
-                    "block w-full rounded-lg border border-gray-600 bg-secondary p-2.5 text-sm text-contrast placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500"
+                    "w-full overflow-x-hidden rounded-lg border border-gray-600 bg-secondary p-2.5 text-sm text-contrast placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500"
                 }
                 value={props.currentStatus}
                 onChange={(event) =>
