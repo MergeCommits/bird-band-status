@@ -1,14 +1,10 @@
 import type { InfoCategory } from "birdCodes/infoCode/infoCategories";
-import {
-    displayInfoCode,
-    getDetailsOfInfoCodeInputs,
-    getOutputCodeDetails,
-} from "birdCodes/infoCode/infoCodeDisplay";
-import { getInfoCode } from "birdCodes/infoCode/infoCodeLogic";
+import { getDetailsOfInfoCodeInputs } from "birdCodes/infoCode/infoCodeDisplay";
 import type { InfoCodeInput } from "birdCodes/infoCode/validInfoCodes";
 import type { BirdStatusCode } from "birdCodes/statusCode/validStatusCodes";
 import { CategoryTabs } from "components/CategoryTabs";
 import { InfoCodeCard } from "components/InfoCodeCard";
+import { ResultHeader } from "components/ResultHeader";
 import { StatusCodeSelect } from "components/StatusCodeSelect";
 import type { NextPage } from "next";
 import Head from "next/head";
@@ -46,44 +42,6 @@ const Home: NextPage = () => {
         }
     }, [currentCategory]);
 
-    const finalCode = useMemo(() => {
-        try {
-            const infoCode = getInfoCode(statusCode, inputCodes);
-            const infoCodeDetails = getOutputCodeDetails(infoCode);
-
-            return (
-                <div
-                    className={
-                        "mb-8 flex min-h-[225px] w-full max-w-4xl flex-col items-center rounded-lg bg-secondary p-4"
-                    }
-                >
-                    <h1 className={"text-8xl"}>
-                        {`${statusCode}${displayInfoCode(infoCode)}`}
-                    </h1>
-                    <p>
-                        <span className={"font-bold"}>
-                            {infoCodeDetails.shortDescription}
-                        </span>
-                        {infoCodeDetails.longDescription && (
-                            <>
-                                <br />
-                                {infoCodeDetails.longDescription}
-                            </>
-                        )}
-                    </p>
-                </div>
-            );
-        } catch (e) {
-            if (e instanceof Error) {
-                return <p className={"text-red-800"}>{e.message}</p>;
-            } else {
-                return (
-                    <p className={"text-red-800"}>{"Something went wrong"}</p>
-                );
-            }
-        }
-    }, [statusCode, inputCodes]);
-
     return (
         <>
             <Head>
@@ -103,7 +61,10 @@ const Home: NextPage = () => {
                     <p className={"mb-8 pt-4 text-xl"}>
                         {"Like really big smokes"}
                     </p>
-                    {finalCode}
+                    <ResultHeader
+                        statusCode={statusCode}
+                        infoCodes={inputCodes}
+                    />
                     <StatusCodeSelect
                         currentStatus={statusCode}
                         onStatusChange={statusCodeHandler}
