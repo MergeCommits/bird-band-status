@@ -2,6 +2,7 @@ import { birdStatusCodeDetails } from "birdCodes/statusCode/statusCodeDetails";
 import type { BirdStatusCode } from "birdCodes/statusCode/validStatusCodes";
 import { useId } from "react";
 import type { ReactFunction } from "types/ReactFunction";
+import { classNames } from "utils/tailwindUtils";
 
 type Props = {
     currentStatus: BirdStatusCode;
@@ -21,9 +22,10 @@ export const StatusCodeSelect: ReactFunction<Props> = (props) => {
             </label>
             <select
                 id={birdStatusID}
-                className={
-                    "w-full rounded-lg border border-gray-600 bg-secondary p-2.5 text-sm text-contrast placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500"
-                }
+                className={classNames(
+                    "w-full rounded-lg border border-gray-600 bg-secondary p-2.5 text-sm text-contrast placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500",
+                    "overflow-x-hidden" // Selected option with long text will generate invisible overflow on Safari
+                )}
                 value={props.currentStatus}
                 onChange={(event) =>
                     props.onStatusChange(
