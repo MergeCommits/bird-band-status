@@ -1,8 +1,8 @@
-# Bird Banding Lab status code
+# Bird Banding status code
 
 Calculates the Bird Banding Lab database code for the condition of a bird.
 
-This tool is not affiliated with the USGS Bird Banding Lab.
+This tool is not affiliated with the USGS Bird Banding Lab or the CWS Bird Banding Office.
 
 ## License
 

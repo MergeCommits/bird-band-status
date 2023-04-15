@@ -46,11 +46,11 @@ const Home: NextPage = () => {
     return (
         <>
             <Head>
-                <title>{"Bird Banding Lab status code"}</title>
+                <title>{"Bird Banding status code"}</title>
                 <meta
                     name={"description"}
                     content={
-                        "Calculate the Bird Banding Lab database code for the condition of a bird"
+                        "Calculate the Bird Banding database code for the condition of a bird"
                     }
                 />
                 <meta
@@ -72,13 +72,15 @@ const Home: NextPage = () => {
                     }
                 >
                     <h1 className={"text-3xl font-extrabold leading-normal "}>
-                        {"Bird Banding Lab status code"}
+                        {"Bird Banding status code"}
                     </h1>
                     <div className={"mb-4 flex flex-col gap-2 text-center"}>
                         <p className={"pt-4 text-sm"}>
                             {"Computes the codes from: "}
                             <a
-                                className={"text-blue-500 hover:text-blue-700"}
+                                className={
+                                    "break-all text-blue-500 hover:text-blue-700"
+                                }
                                 href={
                                     "https://www.pwrc.usgs.gov/BBL/Bander_Portal/login/birdstatus.php"
                                 }
@@ -92,7 +94,7 @@ const Home: NextPage = () => {
                         </p>
                         <p className={"text-sm"}>
                             {
-                                "This tool is not affiliated with the USGS Bird Banding Lab."
+                                "This tool is not affiliated with the USGS Bird Banding Lab or the CWS Bird Banding Office."
                             }
                         </p>
                         <p className={"text-sm"}>
