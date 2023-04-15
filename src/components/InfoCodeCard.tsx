@@ -21,6 +21,7 @@ export const InfoCodeCard: ReactFunction<Props> = (props) => {
         <button
             className={classNames(
                 "w-full max-w-4xl rounded-md border-2 bg-secondary p-6 hover:bg-secondary-light",
+                "transition duration-200 ease-in-out",
                 props.enabled ? "border-accent" : "border-transparent"
             )}
             onClick={() => props.onToggle(props.code)}

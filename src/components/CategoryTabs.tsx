@@ -48,7 +48,7 @@ export const CategoryTabs: ReactFunction<Props> = (props) => {
     return (
         <div
             className={
-                "mb-6 mt-8 flex w-full justify-between overflow-x-scroll px-2 py-1 sm:px-0"
+                "mb-4 mt-8 flex w-full justify-between overflow-x-scroll px-2 py-1 sm:px-0"
             }
             id={tabGroupID}
         >
@@ -60,7 +60,7 @@ export const CategoryTabs: ReactFunction<Props> = (props) => {
                     aria-controls={tabGroupID}
                     onClick={() => props.onTabChange(category.name)}
                     className={classNames(
-                        "flex w-max items-center gap-2 border-b-2 px-5 py-2.5 text-sm font-medium leading-5 focus:outline-none",
+                        "flex items-center gap-2 border-b-2 px-5 py-2.5 text-sm font-medium leading-5 focus:outline-none",
                         props.currentTab === category.name
                             ? "border-b-accent font-bold text-accent"
                             : "rounded-md border-b-transparent hover:bg-white/[0.12]"

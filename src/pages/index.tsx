@@ -9,6 +9,7 @@ import { StatusCodeSelect } from "components/StatusCodeSelect";
 import type { NextPage } from "next";
 import Head from "next/head";
 import { useMemo, useState } from "react";
+import { classNames } from "utils/tailwindUtils";
 
 const Home: NextPage = () => {
     const [statusCode, setStatusCode] = useState<BirdStatusCode>(3);
@@ -45,8 +46,23 @@ const Home: NextPage = () => {
     return (
         <>
             <Head>
-                <title>{"Bird band status"}</title>
-                <meta name={"description"} content={"What"} />
+                <title>{"Bird Banding Lab status code"}</title>
+                <meta
+                    name={"description"}
+                    content={
+                        "Calculate the Bird Banding Lab database code for the condition of a bird"
+                    }
+                />
+                <meta
+                    name={"viewport"}
+                    content={"width=device-width, initial-scale=1"}
+                />
+                <meta name={"theme-color"} content={"#000000"} />
+                <meta
+                    name={"keywords"}
+                    content={"birds, bird banding, bird watching"}
+                />
+
                 <link rel={"icon"} href={"/public/favicon.ico"} />
             </Head>
             <div className={"min-h-screen bg-primary"}>
@@ -56,19 +72,63 @@ const Home: NextPage = () => {
                     }
                 >
                     <h1 className={"text-3xl font-extrabold leading-normal "}>
-                        {"People like smokes"}
+                        {"Bird Banding Lab status code"}
                     </h1>
-                    <p className={"mb-8 pt-4 text-xl"}>
-                        {"Like really big smokes"}
-                    </p>
+                    <div className={"mb-4 flex flex-col gap-2 text-center"}>
+                        <p className={"pt-4 text-sm"}>
+                            {"Computes the codes from: "}
+                            <a
+                                className={"text-blue-500 hover:text-blue-700"}
+                                href={
+                                    "https://www.pwrc.usgs.gov/BBL/Bander_Portal/login/birdstatus.php"
+                                }
+                                target={"_blank"}
+                                rel={"noreferrer"}
+                            >
+                                {
+                                    "https://www.pwrc.usgs.gov/BBL/Bander_Portal/login/birdstatus.php"
+                                }
+                            </a>
+                        </p>
+                        <p className={"text-sm"}>
+                            {
+                                "This tool is not affiliated with the USGS Bird Banding Lab."
+                            }
+                        </p>
+                        <p className={"text-sm"}>
+                            {"Source code: "}
+                            <a
+                                className={"text-blue-500 hover:text-blue-700"}
+                                href={
+                                    "https://github.com/MergeCommits/bird-band-status"
+                                }
+                                target={"_blank"}
+                                rel={"noreferrer"}
+                            >
+                                {"GitHub"}
+                            </a>
+                        </p>
+                    </div>
                     <ResultHeader
                         statusCode={statusCode}
                         infoCodes={inputCodes}
                     />
-                    <StatusCodeSelect
-                        currentStatus={statusCode}
-                        onStatusChange={statusCodeHandler}
-                    />
+                    <div className={"flex flex-col gap-4"}>
+                        <StatusCodeSelect
+                            currentStatus={statusCode}
+                            onStatusChange={statusCodeHandler}
+                        />
+                        <button
+                            className={classNames(
+                                "rounded bg-red-500/[.3] px-4 py-2 font-bold text-white enabled:hover:bg-red-500/[.5] disabled:opacity-20",
+                                "transition duration-200 ease-in-out"
+                            )}
+                            disabled={inputCodes.length === 0}
+                            onClick={() => setInputCode([])}
+                        >
+                            {"Clear selections"}
+                        </button>
+                    </div>
                     <CategoryTabs
                         currentTab={currentCategory}
                         onTabChange={categoryHandler}
@@ -78,11 +138,7 @@ const Home: NextPage = () => {
                             "mx-20 h-[1px] w-full border-t-0 bg-neutral-200 opacity-50"
                         }
                     />
-                    <div
-                        className={
-                            "flex w-full flex-col items-center gap-4 pt-8"
-                        }
-                    >
+                    <div className={"flex flex-col items-center gap-4 pt-8"}>
                         {visibleInputs.map((c) => (
                             <InfoCodeCard
                                 key={c.code}
