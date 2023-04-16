@@ -47,7 +47,7 @@ export function getOutputCodeDetails(code: InfoCode): {
         return {
             code,
             shortDescription: `${info.shortDescription}, plus one or more auxiliary markers used`,
-            longDescription: `${info.longDescription} All markers must be described in marker-related fields.`,
+            longDescription: info.longDescription ? `${info.longDescription} All markers must be described in marker-related fields.` : undefined,
         };
     }
 
