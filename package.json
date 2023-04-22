@@ -51,10 +51,10 @@
         "tailwindcss": "^3.3.0",
         "typescript": "^5.0.2",
         "vite-tsconfig-paths": "^4.1.0",
-        "vitest": "^0.29.8"
+        "vitest": "^0.30.1"
     },
     "ct3aMetadata": {
-        "initVersion": "7.10.3"
+        "initVersion": "7.12.0"
     },
     "lint-staged": {
         "*.{mjs,cjs,ts,tsx}": "eslint --cache --fix",

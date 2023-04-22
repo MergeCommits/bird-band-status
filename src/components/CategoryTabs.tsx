@@ -48,7 +48,7 @@ export const CategoryTabs: ReactFunction<Props> = (props) => {
     return (
         <div
             className={
-                "mb-4 mt-8 flex w-full justify-between overflow-x-scroll px-2 py-1 sm:px-0"
+                "mb-4 mt-8 flex w-full justify-between overflow-x-auto px-2 py-1 sm:px-0"
             }
             id={tabGroupID}
         >
