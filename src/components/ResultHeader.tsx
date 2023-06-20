@@ -7,7 +7,6 @@ import { getInfoCode } from "birdCodes/infoCode/infoCodeLogic";
 import type { InfoCodeInput } from "birdCodes/infoCode/validInfoCodes";
 import type { BirdStatusCode } from "birdCodes/statusCode/validStatusCodes";
 import { useMemo, useState } from "react";
-import type { ReactFunction } from "types/ReactFunction";
 
 function useInfoCodeDetails(
     statusCode: BirdStatusCode,
@@ -32,7 +31,7 @@ type Props = {
     infoCodes: InfoCodeInput[];
 };
 
-export const ResultHeader: ReactFunction<Props> = (props) => {
+export function ResultHeader(props: Props) {
     const [expandDescription, setExpandDescription] = useState(false);
 
     const [infoCodeDetails, errorMessage] = useInfoCodeDetails(
@@ -92,4 +91,4 @@ export const ResultHeader: ReactFunction<Props> = (props) => {
             )}
         </div>
     );
-};
+}

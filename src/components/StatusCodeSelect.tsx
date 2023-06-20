@@ -1,7 +1,6 @@
 import { birdStatusCodeDetails } from "birdCodes/statusCode/statusCodeDetails";
 import type { BirdStatusCode } from "birdCodes/statusCode/validStatusCodes";
 import { useId } from "react";
-import type { ReactFunction } from "types/ReactFunction";
 import { classNames } from "utils/tailwindUtils";
 
 type Props = {
@@ -9,7 +8,7 @@ type Props = {
     onStatusChange: (status: BirdStatusCode) => void;
 };
 
-export const StatusCodeSelect: ReactFunction<Props> = (props) => {
+export function StatusCodeSelect(props: Props) {
     const birdStatusID = useId();
 
     return (
@@ -41,4 +40,4 @@ export const StatusCodeSelect: ReactFunction<Props> = (props) => {
             </select>
         </div>
     );
-};
+}

@@ -2,7 +2,6 @@ import { infoCodeInputDetails } from "birdCodes/infoCode/infoCodeDetails";
 import { displayInfoCode } from "birdCodes/infoCode/infoCodeDisplay";
 import type { InfoCodeInput } from "birdCodes/infoCode/validInfoCodes";
 import { useMemo } from "react";
-import type { ReactFunction } from "types/ReactFunction";
 import { classNames } from "utils/tailwindUtils";
 
 type Props = {
@@ -11,7 +10,7 @@ type Props = {
     onToggle: (code: InfoCodeInput) => void;
 };
 
-export const InfoCodeCard: ReactFunction<Props> = (props) => {
+export function InfoCodeCard(props: Props) {
     const details = useMemo(
         () => infoCodeInputDetails[props.code],
         [props.code]
@@ -36,4 +35,4 @@ export const InfoCodeCard: ReactFunction<Props> = (props) => {
             <p>{details.longDescription ?? details.shortDescription + "."}</p>
         </button>
     );
-};
+}

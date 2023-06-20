@@ -7,7 +7,6 @@ import {
     FingerPrintIcon,
 } from "@heroicons/react/20/solid";
 import { useId } from "react";
-import type { ReactFunction } from "types/ReactFunction";
 import { classNames } from "utils/tailwindUtils";
 
 const allTabs = [
@@ -42,7 +41,7 @@ type Props = {
     onTabChange: (tab: string) => void;
 };
 
-export const CategoryTabs: ReactFunction<Props> = (props) => {
+export function CategoryTabs(props: Props) {
     const tabGroupID = useId();
 
     return (
@@ -74,4 +73,4 @@ export const CategoryTabs: ReactFunction<Props> = (props) => {
             ))}
         </div>
     );
-};
+}
