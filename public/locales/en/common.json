@@ -1,0 +1,32 @@
+{
+    "languages": {
+        "en": "English",
+        "fr": "French"
+    },
+    "meta": {
+        "title": "Bird Banding status code",
+        "description": "Calculate the Bird Banding database code for the condition of a bird"
+    },
+    "header": "Bird Banding status code",
+    "headerSubtitle": "Computes the codes from: ",
+    "headerNotice": "This tool is not affiliated with the USGS Bird Banding Lab or the CWS Bird Banding Office.",
+    "sourceCode": "Source code: ",
+    "selectStatusCode": "Select a status code:",
+    "error": {
+        "unknown": "Something went wrong",
+        "mismatchCodes": "Status code \"{{statusCode}}\" is not valid with info code \"{{infoCode}}\": ",
+        "infoCodeDoesNotInclude": "Info code does not include the given status code",
+        "infoCodeExcludes": "Info code excludes the given status code"
+    },
+    "showDescription": "Show description",
+    "hideDescription": "Hide description",
+    "clearSelections": "Clear selections",
+    "category": {
+        "all": "All",
+        "sample": "Sample",
+        "captureMethod": "Capture method",
+        "visualAuxMarker": "Visual aux marker",
+        "electronicAuxMarker": "Electronic aux marker",
+        "other": "Other"
+    }
+}

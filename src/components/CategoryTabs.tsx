@@ -6,32 +6,33 @@ import {
     EyeIcon,
     FingerPrintIcon,
 } from "@heroicons/react/20/solid";
+import { useTranslation } from "next-i18next";
 import { useId } from "react";
 import { classNames } from "utils/tailwindUtils";
 
 const allTabs = [
     {
-        name: "All",
+        name: "all",
         icon: <EllipsisHorizontalCircleIcon />,
     },
     {
-        name: "Sample",
+        name: "sample",
         icon: <BeakerIcon />,
     },
     {
-        name: "Capture Method",
+        name: "captureMethod",
         icon: <ArchiveBoxArrowDownIcon />,
     },
     {
-        name: "Visual Aux Marker",
+        name: "visualAuxMarker",
         icon: <EyeIcon />,
     },
     {
-        name: "Electronic Aux Marker",
+        name: "electronicAuxMarker",
         icon: <CpuChipIcon />,
     },
     {
-        name: "Other",
+        name: "other",
         icon: <FingerPrintIcon />,
     },
 ];
@@ -42,6 +43,7 @@ type Props = {
 };
 
 export function CategoryTabs(props: Props) {
+    const { t } = useTranslation();
     const tabGroupID = useId();
 
     return (
@@ -68,7 +70,13 @@ export function CategoryTabs(props: Props) {
                     <div className={"mx-auto h-5 w-5 shrink-0 basis-5"}>
                         {category.icon}
                     </div>
-                    {category.name}
+                    {t(`category.${category.name}`)
+                        .split(" ")
+                        .map(
+                            (word) =>
+                                word.charAt(0).toUpperCase() + word.slice(1)
+                        )
+                        .join(" ")}
                 </button>
             ))}
         </div>

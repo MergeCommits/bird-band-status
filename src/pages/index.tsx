@@ -6,22 +6,39 @@ import { CategoryTabs } from "components/CategoryTabs";
 import { InfoCodeCard } from "components/InfoCodeCard";
 import { ResultHeader } from "components/ResultHeader";
 import { StatusCodeSelect } from "components/StatusCodeSelect";
-import type { NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
+import { useRouter } from "next/router";
 import { useMemo, useState } from "react";
 import { classNames } from "utils/tailwindUtils";
 
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale as string, [
+                "common",
+                "statusCode",
+            ])),
+        },
+    };
+};
+
 const Home: NextPage = () => {
+    const router = useRouter();
+    const { t } = useTranslation();
+
     const [statusCode, setStatusCode] = useState<BirdStatusCode>(3);
     const statusCodeHandler = (code: BirdStatusCode) => {
         setStatusCode(code);
     };
 
     const [currentCategory, setCurrentCategory] = useState<
-        InfoCategory | "All"
-    >("All");
+        InfoCategory | "all"
+    >("all");
     const categoryHandler = (cat: string) => {
-        setCurrentCategory(cat as InfoCategory | "All");
+        setCurrentCategory(cat as InfoCategory | "all");
     };
 
     const [inputCodes, setInputCode] = useState<InfoCodeInput[]>([]);
@@ -34,7 +51,7 @@ const Home: NextPage = () => {
     };
 
     const visibleInputs = useMemo(() => {
-        if (currentCategory === "All") {
+        if (currentCategory === "all") {
             return getDetailsOfInfoCodeInputs();
         } else {
             return getDetailsOfInfoCodeInputs().filter(
@@ -46,13 +63,8 @@ const Home: NextPage = () => {
     return (
         <>
             <Head>
-                <title>{"Bird Banding status code"}</title>
-                <meta
-                    name={"description"}
-                    content={
-                        "Calculate the Bird Banding database code for the condition of a bird"
-                    }
-                />
+                <title>{t("meta.title")}</title>
+                <meta name={"description"} content={t("meta.description")} />
                 <meta
                     name={"viewport"}
                     content={"width=device-width, initial-scale=1"}
@@ -72,11 +84,11 @@ const Home: NextPage = () => {
                     }
                 >
                     <h1 className={"text-3xl font-extrabold leading-normal "}>
-                        {"Bird Banding status code"}
+                        {t("header")}
                     </h1>
                     <div className={"mb-4 flex flex-col gap-2 text-center"}>
                         <p className={"pt-4 text-sm"}>
-                            {"Computes the codes from: "}
+                            {t("headerSubtitle")}
                             <a
                                 className={
                                     "break-all text-blue-500 hover:text-blue-700"
@@ -92,13 +104,9 @@ const Home: NextPage = () => {
                                 }
                             </a>
                         </p>
+                        <p className={"text-sm"}>{t("headerNotice")}</p>
                         <p className={"text-sm"}>
-                            {
-                                "This tool is not affiliated with the USGS Bird Banding Lab or the CWS Bird Banding Office."
-                            }
-                        </p>
-                        <p className={"text-sm"}>
-                            {"Source code: "}
+                            {t("sourceCode")}
                             <a
                                 className={"text-blue-500 hover:text-blue-700"}
                                 href={
@@ -128,7 +136,7 @@ const Home: NextPage = () => {
                             disabled={inputCodes.length === 0}
                             onClick={() => setInputCode([])}
                         >
-                            {"Clear selections"}
+                            {t("clearSelections")}
                         </button>
                     </div>
                     <CategoryTabs

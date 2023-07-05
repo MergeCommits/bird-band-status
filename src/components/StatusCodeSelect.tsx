@@ -1,5 +1,8 @@
-import { birdStatusCodeDetails } from "birdCodes/statusCode/statusCodeDetails";
-import type { BirdStatusCode } from "birdCodes/statusCode/validStatusCodes";
+import {
+    validStatusCodes,
+    type BirdStatusCode,
+} from "birdCodes/statusCode/validStatusCodes";
+import { useTranslation } from "next-i18next";
 import { useId } from "react";
 import { classNames } from "utils/tailwindUtils";
 
@@ -9,6 +12,7 @@ type Props = {
 };
 
 export function StatusCodeSelect(props: Props) {
+    const { t } = useTranslation("statusCode");
     const birdStatusID = useId();
 
     return (
@@ -17,7 +21,7 @@ export function StatusCodeSelect(props: Props) {
                 htmlFor={birdStatusID}
                 className={"mb-2 block text-sm font-medium"}
             >
-                {"Select a status code:"}
+                {t("common:selectStatusCode")}
             </label>
             <select
                 id={birdStatusID}
@@ -32,11 +36,16 @@ export function StatusCodeSelect(props: Props) {
                     )
                 }
             >
-                {Object.entries(birdStatusCodeDetails).map(([key, value]) => (
-                    <option key={key} value={key}>
-                        {`${key} - ${value.description}`}
-                    </option>
-                ))}
+                {validStatusCodes.map((value) => {
+                    const description = t(
+                        `statusCode:statusCode.${value}.description`
+                    );
+                    return (
+                        <option key={value} value={value}>
+                            {`${value} - ${description}`}
+                        </option>
+                    );
+                })}
             </select>
         </div>
     );

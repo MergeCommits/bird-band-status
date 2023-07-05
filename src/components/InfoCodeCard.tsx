@@ -1,7 +1,7 @@
-import { infoCodeInputDetails } from "birdCodes/infoCode/infoCodeDetails";
 import { displayInfoCode } from "birdCodes/infoCode/infoCodeDisplay";
 import type { InfoCodeInput } from "birdCodes/infoCode/validInfoCodes";
-import { useMemo } from "react";
+import { MISSING_LONG_DESCRIPTION } from "components/ResultHeader";
+import { useTranslation } from "next-i18next";
 import { classNames } from "utils/tailwindUtils";
 
 type Props = {
@@ -11,9 +11,14 @@ type Props = {
 };
 
 export function InfoCodeCard(props: Props) {
-    const details = useMemo(
-        () => infoCodeInputDetails[props.code],
-        [props.code]
+    const { t } = useTranslation();
+
+    const shortDescription = t(
+        `statusCode:infoCode.${props.code}.shortDescription`
+    );
+    const longDescription = t(
+        `statusCode:infoCode.${props.code}.longDescription`,
+        MISSING_LONG_DESCRIPTION
     );
 
     return (
@@ -30,9 +35,13 @@ export function InfoCodeCard(props: Props) {
                     "mb-2 text-2xl font-bold tracking-tight text-contrast"
                 }
             >
-                {`${displayInfoCode(props.code)} - ${details.shortDescription}`}
+                {`${displayInfoCode(props.code)} - ${shortDescription}`}
             </h5>
-            <p>{details.longDescription ?? details.shortDescription + "."}</p>
+            <p>
+                {longDescription !== MISSING_LONG_DESCRIPTION
+                    ? longDescription
+                    : shortDescription}
+            </p>
         </button>
     );
 }

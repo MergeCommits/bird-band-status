@@ -29,25 +29,19 @@ describe("inclusion/exclusion exceptions", () => {
     it("should throw the correct exception when a status code is used with an info code that does not include it", () => {
         const t = () => getInfoCode(2, [3]);
         expect(t).toThrow(InfoCodeDoesNotIncludeStatusCodeException);
-        expect(t).toThrow(
-            'Status code "2" is not valid with info code "03": Info code does not include the given status code'
-        );
+        expect(t).toThrow('Status code "2" is not valid with info code "03"');
     });
 
     it("should throw the correct exception when a status code is used with an info code that excludes it", () => {
         const t = () => getInfoCode(7, [18]);
         expect(t).toThrow(InfoCodeExcludesStatusCodeException);
-        expect(t).toThrow(
-            'Status code "7" is not valid with info code "18": Info code excludes the given status code'
-        );
+        expect(t).toThrow('Status code "7" is not valid with info code "18"');
     });
 
     it("should throw the correct exception when a status code is used with an info code that does not include it, even if it's an aux variant", () => {
         const t = () => getInfoCode(7, [7, 9]);
         expect(t).toThrow(InfoCodeDoesNotIncludeStatusCodeException);
-        expect(t).toThrow(
-            'Status code "7" is not valid with info code "10": Info code does not include the given status code'
-        );
+        expect(t).toThrow('Status code "7" is not valid with info code "10"');
     });
 });
 
