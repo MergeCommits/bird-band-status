@@ -5,12 +5,12 @@ import type {
 } from "birdCodes/infoCode/validInfoCodes";
 import type { BirdStatusCode } from "birdCodes/statusCode/validStatusCodes";
 
-type BaseDescription = {
+type BaseDetails = {
     onlyWith?: BirdStatusCode[];
     notWith?: BirdStatusCode[];
 };
 
-type InfoInputCodeDescription = BaseDescription &
+type InfoInputCodeDetails = BaseDetails &
     (
         | {
               category: "Visual Aux Marker" | "Electronic Aux Marker";
@@ -26,7 +26,7 @@ type InfoInputCodeDescription = BaseDescription &
     );
 
 export const infoCodeInputDetails: {
-    [key in InfoCodeInput]: InfoInputCodeDescription;
+    [key in InfoCodeInput]: InfoInputCodeDetails;
 } = {
     1: {
         category: "Visual Aux Marker",

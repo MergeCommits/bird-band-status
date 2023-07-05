@@ -1,0 +1,136 @@
+{
+    "statusCode": {
+        "2": {
+            "description": "Transporté",
+            "definition": "Transporté à un bloc de 10 minutes différent, mais il s’agit par ailleurs d’un oiseau sauvage normal (il faut détenir un permis délivré par les autorités d’application de la loi fédérales et/ou d’État) : peut avoir été maintenu en captivité pendant plus de 24 heures, ou non. Le lieu de baguage, l’âge, le sexe et la date de baguage doivent être établis au moment de la remise en liberté. Le lieu et la date de la capture doivent être indiqués dans le champ « Remarques »."
+        },
+        "3": {
+            "description": "Oiseau sauvage normal",
+            "definition": "Oiseau sauvage normal : relâché dans le bloc de 10 minutes où il a été capturé; maintenu en captivité pendant 24 heures ou moins."
+        },
+        "4": {
+            "description": "Oiseau élevé en captivité, élevé pour la chasse ou relâché",
+            "definition": "Élevé en captivité ou relâché : élevé en captivité à partir d’un œuf, ou capturé comme oisillon ou orphelin. Le lieu de baguage, l’âge, le sexe et la date de baguage doivent être établis au moment de la remise en liberté. L’élevage en captivité peut comprendre le transport. Si un oiseau élevé en captivité est également blessé, utiliser le code de renseignements complémentaires 85. Le lieu et la date de la capture doivent être indiqués dans le champ « Remarques »."
+        },
+        "5": {
+            "description": "Malade, épuisé, surmené, blessé ou difforme",
+            "definition": "Malade, épuisé, surmené (ou état de choc), blessé (blessure ancienne ou nouvelle) ou présentant une difformité physique; maintenu en captivité pendant 24 heures ou moins : peut avoir été transporté ou traité, ou non. Explication requise dans le champ « Remarques »."
+        },
+        "7": {
+            "description": "Réadapté et maintenu en captivité",
+            "definition": "Réadapté et maintenu en captivité pendant plus de 24 heures : malade, épuisé, blessé ou handicapé (on suppose qu’un transport ou un prélèvement sanguin ou les deux peut avoir eu lieu). Une explication doit être fournie dans le champ « Remarques », y compris le lieu de la capture ainsi qu’une brève description de la blessure et de la durée de la captivité (moins de 250 caractères). Les oiseaux réhabilités NE devraient PAS être bagués avant d’être prêts pour leur remise en liberté. Le lieu de baguage, l’âge, le sexe et la date de baguage doivent être établis au moment de la remise en liberté."
+        },
+        "8": {
+            "description": "Maintenu en captivité pendant plus de 24 heures à des fins expérimentales ou autres",
+            "definition": "Maintenu en captivité pendant plus de 24 heures à des fins expérimentales ou autres (y compris la fauconnerie en vertu d’un permis fédéral ou d’État). Il s’agit par ailleurs d’un oiseau sauvage normal. Le code d’état 8 peut comprendre le transport mais, si l’oiseau est maintenu en captivité seulement pour le transport, utiliser le code d’état 2. Le maintien en captivité à des fins expérimentales et pour le transport exige l’obtention de deux permis supplémentaires du bureau régional du Fish and Wildlife Service et/ou d’organismes d’État. L’âge, le sexe et la date de baguage doivent être établis au moment de la remise en liberté. Explication requise dans le champ « Remarques », y compris au sujet du lieu et de la date de capture."
+        }
+    },
+    "infoCode": {
+        "1": {
+            "shortDescription": "Colored leg band(s): plastic, metal, paint, tape",
+            "longDescription": "Colored leg band(s) of plastic or metal - This applies to painted or anodized Federal bands as well as colored tape over bands. Note: two metal bands should never be used on the same tarsus."
+        },
+        "2": {
+            "shortDescription": "Neck collar - usually coded",
+            "longDescription": "Neck collar - Collar codes and colors must be reported in marker-related fields."
+        },
+        "3": {
+            "shortDescription": "Reward band (Federal or State)"
+        },
+        "4": {
+            "shortDescription": "Control band (Reward band studies only)",
+            "longDescription": "Control band - For use in conjunction with reward band studies only."
+        },
+        "6": {
+            "shortDescription": "Misc. metal band (State, Provincial etc) with address or telephone number, plus Federal band",
+            "longDescription": "Miscellaneous band - Metal bands with an additional address or telephone number, including State or Provincial bands, private organizations bands, and rarely banders. Explanation must be given in the Remarks field."
+        },
+        "7": {
+            "shortDescription": "Double-banded (Two Federal bands placed on a bird at the same time)",
+            "longDescription": "Two Federal bands placed on a bird at the same time. One Federal band on each tarsus -- two metal bands cannot be used on the same tarsus. This code does not apply to a bird to whom a second band was added at a subsequent encounter."
+        },
+        "8": {
+            "shortDescription": "Temporary markers: Paint or dye; other temporary markers on feathers (imping, tape on tail)",
+            "longDescription": "Temporary markers - Any part of bird painted or dyed, or other temporary markers on feathers (e.g., imping, tail streamers, etc.)."
+        },
+        "9": {
+            "shortDescription": "All flight feathers on one or both wings clipped or pulled upon release",
+            "longDescription": "All flight feathers on one or both wings clipped or pulled upon release."
+        },
+        "11": {
+            "shortDescription": "Sexed by laparotomy or laparoscopy"
+        },
+        "14": {
+            "shortDescription": "Mouth swab"
+        },
+        "16": {
+            "shortDescription": "Tracheal swab"
+        },
+        "18": {
+            "shortDescription": "Blood sample taken",
+            "longDescription": "Blood sample taken (contact the appropriate Bird Banding Office for the required permit)."
+        },
+        "20": {
+            "shortDescription": "Fostered or cross-fostered into wild nests"
+        },
+        "33": {
+            "shortDescription": "Taken from an artificial nest structure (eg, nest boxes, platforms, etc)",
+            "longDescription": "Taken from an artificial nest structure (e.g., nest boxes, platforms, etc.). Includes hacked birds as code 433."
+        },
+        "39": {
+            "shortDescription": "Wing, patagial, head, back, and/or nape tag(s)",
+            "longDescription": "Wing, patagial, head, back, and/or nape tag(s). All markers must be described in marker-related fields.",
+            "category": "Visual Aux Marker"
+        },
+        "40": {
+            "shortDescription": "Oiled"
+        },
+        "51": {
+            "shortDescription": "Nasal saddle and nasal discs or other bill marker",
+            "longDescription": "Nasal saddle and nasal discs or other bill marker - Marker must be described in marker-related fields and in Remarks if necessary."
+        },
+        "59": {
+            "shortDescription": "Web tagged, usually coded",
+            "longDescription": "Web tagged - Marker must be described in marker-related fields."
+        },
+        "69": {
+            "shortDescription": "Flag, streamer, or tab on leg",
+            "longDescription": "Flag, streamer, or tab on leg - Marker must be described in marker-related fields."
+        },
+        "70": {
+            "shortDescription": "Captured by spotlighting"
+        },
+        "75": {
+            "shortDescription": "PIT tag",
+            "longDescription": "Equipped with PIT tag only (see also additional information code 25) - Marker must be described in marker-related fields. Frequency and type of attachment may be listed in Remarks."
+        },
+        "80": {
+            "shortDescription": "Satellite/Cell/GPS transmitter",
+            "longDescription": "Equipped with Satellite/Cell/GPS transmitter only (see also additional information code 25) - Marker must be described in marker-related fields. Frequency and type of attachment may be listed in Remarks."
+        },
+        "81": {
+            "shortDescription": "Radio transmitter",
+            "longDescription": "Equipped with radio transmitter only (see also additional information code 25) - Marker must be described in marker-related fields. Frequency and type of attachment may be listed in Remarks."
+        },
+        "87": {
+            "shortDescription": "Captured with drugs or tranquilizers"
+        },
+        "90": {
+            "shortDescription": "Data logger (including geolocators)",
+            "longDescription": "Equipped with data logger only (see also additional information code 25) - Marker must be described in marker-related fields. Frequency and type of attachment may be listed in Remarks."
+        },
+        "0": {
+            "shortDescription": "Federal numbered metal band only"
+        },
+        "25": {
+            "shortDescription": "Two or more types of auxiliary markers",
+            "longDescription": "Two or more types of auxiliary markers (e.g., neck collar and color leg band or wing tag and radio transmitter). All markers must be described in marker-related fields."
+        },
+        "85": {
+            "shortDescription": "Miscellaneous (combination or situation not covered by other ai codes)",
+            "longDescription": "Miscellaneous (combination or situation not covered by other additional information codes) - An explanation is needed in Remarks. For example, a bird that was color-banded, sexed by laparotomy, and blood-sampled would be 385 with an explanation 385 = C/B, laparotomy, blood sample. All markers must be described in marker-related fields."
+        },
+        "shortDescriptionAuxSuffix": ", plus one or more auxiliary markers used",
+        "longDescriptionAuxSuffix": "All markers must be described in marker-related fields."
+    }
+}
