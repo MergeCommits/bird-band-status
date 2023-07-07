@@ -86,6 +86,22 @@ const Home: NextPage = () => {
                     <h1 className={"text-3xl font-extrabold leading-normal "}>
                         {t("header")}
                     </h1>
+                    <button
+                        className={
+                            "rounded px-4 py-2 font-bold text-blue-500 underline hover:text-blue-700"
+                        }
+                        onClick={() =>
+                            router.locale === "en"
+                                ? router.push("/", "/", { locale: "fr" })
+                                : router.push("/", "/", { locale: "en" })
+                        }
+                    >
+                        {t(
+                            router.locale === "en"
+                                ? "languages.fr"
+                                : "languages.en"
+                        )}
+                    </button>
                     <div className={"mb-4 flex flex-col gap-2 text-center"}>
                         <p className={"pt-4 text-sm"}>
                             {t("headerSubtitle")}
