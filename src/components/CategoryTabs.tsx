@@ -12,27 +12,27 @@ import { classNames } from "utils/tailwindUtils";
 
 const allTabs = [
     {
-        name: "all",
+        name: "All",
         icon: <EllipsisHorizontalCircleIcon />,
     },
     {
-        name: "sample",
+        name: "Sample",
         icon: <BeakerIcon />,
     },
     {
-        name: "captureMethod",
+        name: "Capture Method",
         icon: <ArchiveBoxArrowDownIcon />,
     },
     {
-        name: "visualAuxMarker",
+        name: "Visual Aux Marker",
         icon: <EyeIcon />,
     },
     {
-        name: "electronicAuxMarker",
+        name: "Electronic Aux Marker",
         icon: <CpuChipIcon />,
     },
     {
-        name: "other",
+        name: "Other",
         icon: <FingerPrintIcon />,
     },
 ];

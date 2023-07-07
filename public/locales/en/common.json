@@ -22,11 +22,11 @@
     "hideDescription": "Hide description",
     "clearSelections": "Clear selections",
     "category": {
-        "all": "All",
-        "sample": "Sample",
-        "captureMethod": "Capture method",
-        "visualAuxMarker": "Visual aux marker",
-        "electronicAuxMarker": "Electronic aux marker",
-        "other": "Other"
+        "All": "All",
+        "Sample": "Sample",
+        "Capture Method": "Capture method",
+        "Visual Aux Marker": "Visual aux marker",
+        "Electronic Aux Marker": "Electronic aux marker",
+        "Other": "Other"
     }
 }

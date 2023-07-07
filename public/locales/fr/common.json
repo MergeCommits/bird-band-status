@@ -22,11 +22,11 @@
     "hideDescription": "Masquer la description",
     "clearSelections": "Effacer les sélections",
     "category": {
-        "all": "Tous",
-        "sample": "Échantillon",
-        "captureMethod": "Méthode de capture",
-        "visualAuxMarker": "Marqueur auxiliaire visuel",
-        "electronicAuxMarker": "Marqueur auxiliaire électronique",
-        "other": "Autre"
+        "All": "Tous",
+        "Sample": "Échantillon",
+        "Capture Method": "Méthode de capture",
+        "Visual Aux Marker": "Marqueur auxiliaire visuel",
+        "Electronic Aux Marker": "Marqueur auxiliaire électronique",
+        "Other": "Autre"
     }
 }

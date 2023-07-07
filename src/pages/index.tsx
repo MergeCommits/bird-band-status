@@ -35,10 +35,10 @@ const Home: NextPage = () => {
     };
 
     const [currentCategory, setCurrentCategory] = useState<
-        InfoCategory | "all"
-    >("all");
+        InfoCategory | "All"
+    >("All");
     const categoryHandler = (cat: string) => {
-        setCurrentCategory(cat as InfoCategory | "all");
+        setCurrentCategory(cat as InfoCategory | "All");
     };
 
     const [inputCodes, setInputCode] = useState<InfoCodeInput[]>([]);
@@ -51,7 +51,7 @@ const Home: NextPage = () => {
     };
 
     const visibleInputs = useMemo(() => {
-        if (currentCategory === "all") {
+        if (currentCategory === "All") {
             return getDetailsOfInfoCodeInputs();
         } else {
             return getDetailsOfInfoCodeInputs().filter(
