@@ -54,8 +54,7 @@
             "longDescription": "Temporary markers - Any part of bird painted or dyed, or other temporary markers on feathers (e.g., imping, tail streamers, etc.)."
         },
         "9": {
-            "shortDescription": "All flight feathers on one or both wings clipped or pulled upon release",
-            "longDescription": "All flight feathers on one or both wings clipped or pulled upon release."
+            "shortDescription": "All flight feathers on one or both wings clipped or pulled upon release"
         },
         "11": {
             "shortDescription": "Sexed by laparotomy or laparoscopy"
@@ -79,8 +78,7 @@
         },
         "39": {
             "shortDescription": "Wing, patagial, head, back, and/or nape tag(s)",
-            "longDescription": "Wing, patagial, head, back, and/or nape tag(s). All markers must be described in marker-related fields.",
-            "category": "Visual Aux Marker"
+            "longDescription": "Wing, patagial, head, back, and/or nape tag(s). All markers must be described in marker-related fields."
         },
         "40": {
             "shortDescription": "Oiled"

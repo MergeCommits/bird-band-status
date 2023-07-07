@@ -27,108 +27,106 @@
     },
     "infoCode": {
         "1": {
-            "shortDescription": "Colored leg band(s): plastic, metal, paint, tape",
-            "longDescription": "Colored leg band(s) of plastic or metal - This applies to painted or anodized Federal bands as well as colored tape over bands. Note: two metal bands should never be used on the same tarsus."
+            "shortDescription": "Bagues de couleur : plastique, métal, peinture, ruban",
+            "longDescription": "Bagues de couleur en plastique ou en métal – cela s’applique aux bagues fédérales peintes ou anodisées ainsi qu’aux bagues recouvertes d’une bande de couleur. Remarque : il ne faut jamais appliquer deux bagues métalliques au même tarse."
         },
         "2": {
-            "shortDescription": "Neck collar - usually coded",
-            "longDescription": "Neck collar - Collar codes and colors must be reported in marker-related fields."
+            "shortDescription": "Collier – habituellement assorti d’un code",
+            "longDescription": "Collier – les codes et les couleurs que portent les colliers doivent être signalés dans les champs relatifs aux marqueurs."
         },
         "3": {
-            "shortDescription": "Reward band (Federal or State)"
+            "shortDescription": "Bague de récompense (fédérale ou d’État)"
         },
         "4": {
-            "shortDescription": "Control band (Reward band studies only)",
-            "longDescription": "Control band - For use in conjunction with reward band studies only."
+            "shortDescription": "Bague de contrôle (études utilisant des bagues de récompense seulement)",
+            "longDescription": "Bague de contrôle – s’applique uniquement dans le cadre d’études utilisant des bagues de récompense."
         },
         "6": {
-            "shortDescription": "Misc. metal band (State, Provincial etc) with address or telephone number, plus Federal band",
-            "longDescription": "Miscellaneous band - Metal bands with an additional address or telephone number, including State or Provincial bands, private organizations bands, and rarely banders. Explanation must be given in the Remarks field."
+            "shortDescription": "Diverses bagues métalliques (d’État, provinciales, etc.) portant une adresse ou un numéro de téléphone et accompagnées d’une bague fédérale",
+            "longDescription": "Diverses bagues métalliques – bagues portant une adresse ou un numéro de téléphone supplémentaire, y compris les bagues d’État ou provinciales, les bagues d’organisations privées et, rarement, celles de bagueurs. Explication requise dans le champ « Remarques »."
         },
         "7": {
-            "shortDescription": "Double-banded (Two Federal bands placed on a bird at the same time)",
-            "longDescription": "Two Federal bands placed on a bird at the same time. One Federal band on each tarsus -- two metal bands cannot be used on the same tarsus. This code does not apply to a bird to whom a second band was added at a subsequent encounter."
+            "shortDescription": "Deux bagues (bagues fédérales placées en même temps sur un oiseau)",
+            "longDescription": "Deux bagues fédérales placées en même temps sur un oiseau. Une bague fédérale sur chaque tarse : il ne faut jamais appliquer deux bagues métalliques au même tarse. Ce code ne s’applique pas aux oiseaux auxquels on ajoute une deuxième bague à l’occasion d’une autre capture."
         },
         "8": {
-            "shortDescription": "Temporary markers: Paint or dye; other temporary markers on feathers (imping, tape on tail)",
-            "longDescription": "Temporary markers - Any part of bird painted or dyed, or other temporary markers on feathers (e.g., imping, tail streamers, etc.)."
+            "shortDescription": "Marqueurs temporaires : peinture ou teinture; autres marqueurs temporaires sur les plumes (empennage, ruban sur la queue)",
+            "longDescription": "Marqueurs temporaires – toute partie d’un oiseau qui est peinte ou teinte, ou qui porte d’autres marqueurs temporaires sur les plumes (p. ex. : empennage, ruban sur la queue)."
         },
         "9": {
-            "shortDescription": "All flight feathers on one or both wings clipped or pulled upon release",
-            "longDescription": "All flight feathers on one or both wings clipped or pulled upon release."
+            "shortDescription": "Toutes les plumes de vol sur une aile ou les deux sont rognées ou tirées au moment de la remise en liberté"
         },
         "11": {
-            "shortDescription": "Sexed by laparotomy or laparoscopy"
+            "shortDescription": "Sexage par laparotomie ou laparoscopie"
         },
         "14": {
-            "shortDescription": "Mouth swab"
+            "shortDescription": "Écouvillon buccal"
         },
         "16": {
-            "shortDescription": "Tracheal swab"
+            "shortDescription": "Écouvillon trachéal"
         },
         "18": {
-            "shortDescription": "Blood sample taken",
-            "longDescription": "Blood sample taken (contact the appropriate Bird Banding Office for the required permit)."
+            "shortDescription": "Échantillon de sang prélevé",
+            "longDescription": "Échantillon de sang prélevé (communiquer avec le bureau de baguage compétent pour obtenir le permis requis)."
         },
         "20": {
-            "shortDescription": "Fostered or cross-fostered into wild nests"
+            "shortDescription": "Adoption intraspécifique ou interspécifique dans des nids d’oiseaux sauvages"
         },
         "33": {
-            "shortDescription": "Taken from an artificial nest structure (eg, nest boxes, platforms, etc)",
-            "longDescription": "Taken from an artificial nest structure (e.g., nest boxes, platforms, etc.). Includes hacked birds as code 433."
+            "shortDescription": "Pris d’une structure de nidification artificielle (p. ex. : nichoirs, plateformes de nidification)",
+            "longDescription": "Pris d’une structure de nidification artificielle (p. ex. : nichoirs, plateformes de nidification). Comprend les oiseaux relâchés (code 433)."
         },
         "39": {
-            "shortDescription": "Wing, patagial, head, back, and/or nape tag(s)",
-            "longDescription": "Wing, patagial, head, back, and/or nape tag(s). All markers must be described in marker-related fields.",
-            "category": "Visual Aux Marker"
+            "shortDescription": "Étiquette(s) sur l’aile, le patagium, la tête, le dos et/ou la nuque",
+            "longDescription": "Étiquette(s) sur l’aile, le patagium, la tête, le dos et/ou la nuque. Tous les marqueurs doivent être décrits dans les champs relatifs aux marqueurs."
         },
         "40": {
-            "shortDescription": "Oiled"
+            "shortDescription": "Souillé de pétrole"
         },
         "51": {
-            "shortDescription": "Nasal saddle and nasal discs or other bill marker",
-            "longDescription": "Nasal saddle and nasal discs or other bill marker - Marker must be described in marker-related fields and in Remarks if necessary."
+            "shortDescription": "Épinglettes et disques nasaux ou autre marqueur placé sur le bec",
+            "longDescription": "Épinglettes et disques nasaux ou autre marqueur placé sur le bec - le marqueur doit être décrit dans les champs relatifs aux marqueurs et, au besoin, dans le champ « Remarques »."
         },
         "59": {
-            "shortDescription": "Web tagged, usually coded",
-            "longDescription": "Web tagged - Marker must be described in marker-related fields."
+            "shortDescription": "Étiquette de palmure, habituellement assortie d’un code",
+            "longDescription": "Étiquette de palmure – le marqueur doit être décrit dans les champs relatifs aux marqueurs."
         },
         "69": {
-            "shortDescription": "Flag, streamer, or tab on leg",
-            "longDescription": "Flag, streamer, or tab on leg - Marker must be described in marker-related fields."
+            "shortDescription": "Bague-drapeau, banderole et autres marqueurs placés sur la patte",
+            "longDescription": "Bague-drapeau, banderole et autres marqueurs placés sur la patte – le marqueur doit être décrit dans les champs relatifs aux marqueurs."
         },
         "70": {
-            "shortDescription": "Captured by spotlighting"
+            "shortDescription": "Capturé au moyen d’éclairage de nuit"
         },
         "75": {
-            "shortDescription": "PIT tag",
-            "longDescription": "Equipped with PIT tag only (see also additional information code 25) - Marker must be described in marker-related fields. Frequency and type of attachment may be listed in Remarks."
+            "shortDescription": "Étiquette à TPI (ou transpondeur de type « PIT »)",
+            "longDescription": "L’oiseau porte seulement une étiquette à transpondeur passif intégré, ou TPI (voir aussi le code de renseignements complémentaires 25) – le marqueur doit être décrit dans les champs relatifs aux marqueurs. La fréquence et la méthode de fixation peuvent être indiquées dans le champ « Remarques »."
         },
         "80": {
-            "shortDescription": "Satellite/Cell/GPS transmitter",
-            "longDescription": "Equipped with Satellite/Cell/GPS transmitter only (see also additional information code 25) - Marker must be described in marker-related fields. Frequency and type of attachment may be listed in Remarks."
+            "shortDescription": "Émetteur satellite/cellulaire/GPS",
+            "longDescription": "L’oiseau porte seulement un émetteur satellite/cellulaire/GPS (voir aussi le code de renseignements complémentaires 25) – le marqueur doit être décrit dans les champs relatifs aux marqueurs. La fréquence et la méthode de fixation peuvent être indiquées dans le champ « Remarques »."
         },
         "81": {
-            "shortDescription": "Radio transmitter",
-            "longDescription": "Equipped with radio transmitter only (see also additional information code 25) - Marker must be described in marker-related fields. Frequency and type of attachment may be listed in Remarks."
+            "shortDescription": "Émetteur radio",
+            "longDescription": "L’oiseau porte seulement un émetteur radio (voir aussi le code de renseignements complémentaires 25) – le marqueur doit être décrit dans les champs relatifs aux marqueurs. La fréquence et la méthode de fixation peuvent être indiquées dans le champ « Remarques »."
         },
         "87": {
-            "shortDescription": "Captured with drugs or tranquilizers"
+            "shortDescription": "Capturé au moyen de drogues ou d’anesthésiants"
         },
         "90": {
-            "shortDescription": "Data logger (including geolocators)",
-            "longDescription": "Equipped with data logger only (see also additional information code 25) - Marker must be described in marker-related fields. Frequency and type of attachment may be listed in Remarks."
+            "shortDescription": "Consignateur de données (y compris les dispositifs de géolocalisation)",
+            "longDescription": "L’oiseau porte seulement un consignateur de données (voir aussi le code de renseignements complémentaires 25) – le marqueur doit être décrit dans les champs relatifs aux marqueurs. La fréquence et la méthode de fixation peuvent être indiquées dans le champ « Remarques »."
         },
         "0": {
-            "shortDescription": "Federal numbered metal band only"
+            "shortDescription": "Bagues fédérales métalliques numérotées seulement"
         },
         "25": {
-            "shortDescription": "Two or more types of auxiliary markers",
-            "longDescription": "Two or more types of auxiliary markers (e.g., neck collar and color leg band or wing tag and radio transmitter). All markers must be described in marker-related fields."
+            "shortDescription": "Au moins deux types de marqueurs auxiliaires",
+            "longDescription": "Deux types de marqueurs auxiliaires ou plus (p. ex. : collier et bague de couleur ou étiquette sur l’aile et émetteur radio). Tous les marqueurs doivent être décrits dans les champs relatifs aux marqueurs."
         },
         "85": {
-            "shortDescription": "Miscellaneous (combination or situation not covered by other ai codes)",
-            "longDescription": "Miscellaneous (combination or situation not covered by other additional information codes) - An explanation is needed in Remarks. For example, a bird that was color-banded, sexed by laparotomy, and blood-sampled would be 385 with an explanation 385 = C/B, laparotomy, blood sample. All markers must be described in marker-related fields."
+            "shortDescription": "Divers (combinaison de situations, ou situation échappant aux autres codes de renseignements complémentaires)",
+            "longDescription": "Divers (combinaison de situations, ou situation échappant aux autres codes de renseignements complémentaires) – explication requise dans le champ « Remarques ». Par exemple, dans le cas d’un oiseau portant une bague de couleur, dont le sexe a été déterminé par laparotomie et ayant fait l’objet d’une prise de sang, on utiliserait le code 385, accompagné de l’explication suivante : « 385 = B/C, laparotomie, échantillon de sang ». Tous les marqueurs doivent être décrits dans les champs relatifs aux marqueurs."
         },
         "shortDescriptionAuxSuffix": ", plus one or more auxiliary markers used",
         "longDescriptionAuxSuffix": "All markers must be described in marker-related fields."
