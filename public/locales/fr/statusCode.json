@@ -128,7 +128,7 @@
             "shortDescription": "Divers (combinaison de situations, ou situation échappant aux autres codes de renseignements complémentaires)",
             "longDescription": "Divers (combinaison de situations, ou situation échappant aux autres codes de renseignements complémentaires) – explication requise dans le champ « Remarques ». Par exemple, dans le cas d’un oiseau portant une bague de couleur, dont le sexe a été déterminé par laparotomie et ayant fait l’objet d’une prise de sang, on utiliserait le code 385, accompagné de l’explication suivante : « 385 = B/C, laparotomie, échantillon de sang ». Tous les marqueurs doivent être décrits dans les champs relatifs aux marqueurs."
         },
-        "shortDescriptionAuxSuffix": ", plus one or more auxiliary markers used",
-        "longDescriptionAuxSuffix": "All markers must be described in marker-related fields."
+        "shortDescriptionAuxSuffix": ", et l’oiseau porte un ou plusieurs marqueurs auxiliaires",
+        "longDescriptionAuxSuffix": "Tous les marqueurs doivent être décrits dans les champs relatifs aux marqueurs."
     }
 }
