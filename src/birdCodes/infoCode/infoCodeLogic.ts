@@ -100,7 +100,7 @@ function getIncludeExcludeLists(infoCode: InfoCode): {
 
     const nonAuxVariant = getNonAuxMarkerVariant(infoCode);
     if (nonAuxVariant !== null) {
-        const infoDetail = infoCodeInputDetails[nonAuxVariant as InfoCodeInput];
+        const infoDetail = infoCodeInputDetails[nonAuxVariant];
 
         return {
             onlyWith: infoDetail.onlyWith,

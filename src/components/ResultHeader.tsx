@@ -126,7 +126,9 @@ export function ResultHeader(props: Props) {
                         className={
                             "self-center px-2 py-0.5 text-xs uppercase leading-normal text-white focus:outline-none focus:ring-0"
                         }
-                        onClick={() => setExpandDescription((prev) => !prev)}
+                        onClick={() => {
+                            setExpandDescription((prev) => !prev);
+                        }}
                     >
                         <div className={"flex justify-center"}>
                             {expandDescription ? (

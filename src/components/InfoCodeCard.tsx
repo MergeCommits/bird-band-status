@@ -28,7 +28,9 @@ export function InfoCodeCard(props: Props) {
                 "transition duration-200 ease-in-out",
                 props.enabled ? "border-accent" : "border-transparent"
             )}
-            onClick={() => props.onToggle(props.code)}
+            onClick={() => {
+                props.onToggle(props.code);
+            }}
         >
             <h5
                 className={

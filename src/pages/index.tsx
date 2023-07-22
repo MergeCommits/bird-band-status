@@ -17,7 +17,7 @@ import { classNames } from "utils/tailwindUtils";
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
     return {
         props: {
-            ...(await serverSideTranslations(locale as string, [
+            ...(await serverSideTranslations(locale ?? "", [
                 "common",
                 "statusCode",
             ])),
@@ -90,11 +90,13 @@ const Home: NextPage = () => {
                         className={
                             "rounded px-4 py-2 font-bold text-blue-500 underline hover:text-blue-700"
                         }
-                        onClick={() =>
-                            router.locale === "en"
-                                ? router.push("/", "/", { locale: "fr" })
-                                : router.push("/", "/", { locale: "en" })
-                        }
+                        onClick={() => {
+                            if (router.locale === "en") {
+                                void router.push("/", "/", { locale: "fr" });
+                            } else {
+                                void router.push("/", "/", { locale: "en" });
+                            }
+                        }}
                     >
                         {t(
                             router.locale === "en"
@@ -150,7 +152,9 @@ const Home: NextPage = () => {
                                 "transition duration-200 ease-in-out"
                             )}
                             disabled={inputCodes.length === 0}
-                            onClick={() => setInputCode([])}
+                            onClick={() => {
+                                setInputCode([]);
+                            }}
                         >
                             {t("clearSelections")}
                         </button>

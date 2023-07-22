@@ -59,7 +59,9 @@ export function CategoryTabs(props: Props) {
                     role={"tab"}
                     aria-selected={props.currentTab === category.name}
                     aria-controls={tabGroupID}
-                    onClick={() => props.onTabChange(category.name)}
+                    onClick={() => {
+                        props.onTabChange(category.name);
+                    }}
                     className={classNames(
                         "flex items-center gap-2 border-b-2 px-5 py-2.5 text-sm font-medium leading-5 focus:outline-none",
                         props.currentTab === category.name

@@ -30,11 +30,11 @@ export function StatusCodeSelect(props: Props) {
                     "overflow-x-hidden" // Selected option with long text will generate invisible overflow on Safari
                 )}
                 value={props.currentStatus}
-                onChange={(event) =>
+                onChange={(event) => {
                     props.onStatusChange(
                         Number(event.target.value) as BirdStatusCode
-                    )
-                }
+                    );
+                }}
             >
                 {validStatusCodes.map((value) => {
                     const description = t(
