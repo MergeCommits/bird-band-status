@@ -56,7 +56,11 @@ function computeInfoCode(inputs: InfoCodeInput[]): InfoCode {
     }
 
     if (inputs.length === 1) {
-        return inputs[0];
+        const firstInputCode = inputs[0];
+        if (!firstInputCode) {
+            throw new Error("This should never happen");
+        }
+        return firstInputCode;
     }
 
     const allAuxMarkers = getAuxMarkers();
@@ -79,6 +83,9 @@ function computeInfoCode(inputs: InfoCodeInput[]): InfoCode {
     );
     if (nonAuxInputs.length === 1) {
         const nonAuxInput = nonAuxInputs[0];
+        if (!nonAuxInput) {
+            throw new Error("This should never happen");
+        }
         return getAuxVariantOfNonAuxMarker(nonAuxInput);
     }
 
