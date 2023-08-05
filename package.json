@@ -3,7 +3,7 @@
     "version": "0.1.0",
     "license": "Zlib",
     "scripts": {
-        "build": "next build",
+        "build": "yarn interface && next build",
         "dev": "next dev",
         "interface": "i18next-resources-for-ts interface -i ./public/locales/en -o ./src/@types/resources.d.ts",
         "lint": "next lint",
