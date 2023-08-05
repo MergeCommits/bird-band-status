@@ -2394,6 +2394,13 @@ i18next-fs-backend@^2.1.5:
   resolved "https://registry.yarnpkg.com/i18next-fs-backend/-/i18next-fs-backend-2.1.5.tgz#03347eacde6a35b599da1889a048ae63bcf0c687"
   integrity sha512-7fgSH8nVhXSBYPHR/W3tEXXhcnwHwNiND4Dfx9knzPzdsWTUTL/TdDVV+DY0dL0asHKLbdoJaXS4LdVW6R8MVQ==
 
+i18next-resources-for-ts@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/i18next-resources-for-ts/-/i18next-resources-for-ts-1.2.1.tgz#056631177063762b4a1616caccf208d0caf676b8"
+  integrity sha512-Z2FmlSJZRVUlmcqVnpoe2oxixawSYku2Ez7p1KRF3TsJAhW5JzcynKkeeqlw5Jn6MJHhOpXKvT3eK2UcWt2/aw==
+  dependencies:
+    "@babel/runtime" "^7.22.5"
+
 i18next@^23.2.7:
   version "23.4.1"
   resolved "https://registry.yarnpkg.com/i18next/-/i18next-23.4.1.tgz#11fe0db92ac8a4125934960ebccf6a5f8ed6b9fc"

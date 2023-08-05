@@ -3,24 +3,25 @@ const infoInputCodes = [
     80, 81, 87, 90,
 ] as const;
 
+const OtherOutputInfoCodes = [0, 25, 85] as const;
+
 const infoCodes = [
-    0,
     10,
     12,
     15,
     17,
     19,
     21,
-    25,
     29,
     30,
     34,
     41,
     71,
-    85,
     88,
     ...infoInputCodes,
+    ...OtherOutputInfoCodes,
 ] as const;
 
 export type InfoCodeInput = (typeof infoInputCodes)[number];
 export type InfoCode = (typeof infoCodes)[number];
+export type OtherOutputInfoCode = (typeof OtherOutputInfoCodes)[number];

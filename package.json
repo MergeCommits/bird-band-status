@@ -5,6 +5,7 @@
     "scripts": {
         "build": "next build",
         "dev": "next dev",
+        "interface": "i18next-resources-for-ts interface -i ./public/locales/en -o ./src/@types/resources.d.ts",
         "lint": "next lint",
         "prepare": "husky install",
         "start": "next start",
@@ -43,6 +44,7 @@
         "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-no-relative-import-paths": "^1.4.0",
         "husky": ">=6",
+        "i18next-resources-for-ts": "^1.2.1",
         "lint-staged": ">=10",
         "postcss": "^8.4.21",
         "prettier": "^3.0.0",

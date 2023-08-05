@@ -12,7 +12,7 @@ type Props = {
 };
 
 export function StatusCodeSelect(props: Props) {
-    const { t } = useTranslation("statusCode");
+    const { t } = useTranslation(["common", "statusCode"]);
     const birdStatusID = useId();
 
     return (
@@ -21,7 +21,7 @@ export function StatusCodeSelect(props: Props) {
                 htmlFor={birdStatusID}
                 className={"mb-2 block text-sm font-medium"}
             >
-                {t("common:selectStatusCode")}
+                {t("selectStatusCode")}
             </label>
             <select
                 id={birdStatusID}

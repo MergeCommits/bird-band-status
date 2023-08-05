@@ -11,13 +11,11 @@ type Props = {
 };
 
 export function InfoCodeCard(props: Props) {
-    const { t } = useTranslation();
+    const { t } = useTranslation("statusCode");
 
-    const shortDescription = t(
-        `statusCode:infoCode.${props.code}.shortDescription`
-    );
-    const longDescription = t(
-        `statusCode:infoCode.${props.code}.longDescription`,
+    const shortDescription = t(`infoCode.${props.code}.shortDescription`);
+    const longDescription: string = t(
+        `infoCode.${props.code}.longDescription`,
         MISSING_LONG_DESCRIPTION
     );
 

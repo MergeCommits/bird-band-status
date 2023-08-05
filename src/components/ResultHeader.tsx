@@ -10,14 +10,14 @@ import {
 import { getInfoCode } from "birdCodes/infoCode/infoCodeLogic";
 import type { InfoCodeInput } from "birdCodes/infoCode/validInfoCodes";
 import type { BirdStatusCode } from "birdCodes/statusCode/validStatusCodes";
-import type { TFunction } from "next-i18next";
+import type { TFunction } from "i18next";
 import { useTranslation } from "next-i18next";
 import { useMemo, useState } from "react";
 
 function useInfoCodeDetails(
     statusCode: BirdStatusCode,
     inputCodes: InfoCodeInput[],
-    t: TFunction
+    t: TFunction<["common", "statusCode"]>
 ): [ReturnType<typeof getOutputCodeDetails> | null, string] {
     return useMemo(() => {
         try {
@@ -27,21 +27,21 @@ function useInfoCodeDetails(
             if (e instanceof InfoCodeDoesNotIncludeStatusCodeException) {
                 return [
                     null,
-                    `${t("common:error.mismatchCodes", {
+                    `${t("error.mismatchCodes", {
                         statusCode: e.statusCode,
                         infoCode: displayInfoCode(e.infoCode),
-                    })} ${t("common:error.infoCodeDoesNotInclude")}`,
+                    })} ${t("error.infoCodeDoesNotInclude")}`,
                 ];
             } else if (e instanceof InfoCodeExcludesStatusCodeException) {
                 return [
                     null,
-                    `${t("common:error.mismatchCodes", {
+                    `${t("error.mismatchCodes", {
                         statusCode: e.statusCode,
                         infoCode: displayInfoCode(e.infoCode),
-                    })} ${t("common:error.infoCodeExcludes")}`,
+                    })} ${t("error.infoCodeExcludes")}`,
                 ];
             } else {
-                return [null, t("common:error.unknown")];
+                return [null, t("error.unknown")];
             }
         }
     }, [statusCode, inputCodes, t]);
@@ -55,7 +55,7 @@ type Props = {
 export const MISSING_LONG_DESCRIPTION = "missing";
 
 export function ResultHeader(props: Props) {
-    const { t } = useTranslation(["statusCode"]);
+    const { t } = useTranslation(["common", "statusCode"]);
     const [expandDescription, setExpandDescription] = useState(false);
 
     const [infoCodeDetails, errorMessage] = useInfoCodeDetails(
@@ -69,42 +69,39 @@ export function ResultHeader(props: Props) {
             return "infoCodeDetails is null";
         }
 
-        if (infoCodeDetails.nonAuxMarkerVariant) {
+        const shortDescription = t(
+            `statusCode:infoCode.${infoCodeDetails.code}.shortDescription`
+        );
+
+        if (infoCodeDetails.includesAuxiliaryMarker) {
             return (
-                t(
-                    `statusCode:infoCode.${infoCodeDetails.nonAuxMarkerVariant}.shortDescription`
-                ) + t("statusCode:infoCode.shortDescriptionAuxSuffix")
+                shortDescription +
+                t("statusCode:infoCode.shortDescriptionAuxSuffix")
             );
         }
 
-        return t(
-            `statusCode:infoCode.${infoCodeDetails.code}.shortDescription`
-        );
+        return shortDescription;
     }, [infoCodeDetails, t]);
+
     const longDescription = useMemo(() => {
         if (infoCodeDetails === null) {
             return "infoCodeDetails is null";
         }
 
-        if (infoCodeDetails.nonAuxMarkerVariant) {
-            const candiate = t(
-                `statusCode:infoCode.${infoCodeDetails.nonAuxMarkerVariant}.longDescription`,
-                MISSING_LONG_DESCRIPTION
-            );
-
-            if (candiate !== MISSING_LONG_DESCRIPTION) {
-                return (
-                    candiate +
-                    " " +
-                    t("statusCode:infoCode.longDescriptionAuxSuffix")
-                );
-            }
-        }
-
-        return t(
+        const longDescription: string = t(
             `statusCode:infoCode.${infoCodeDetails.code}.longDescription`,
             MISSING_LONG_DESCRIPTION
         );
+
+        if (infoCodeDetails.includesAuxiliaryMarker) {
+            if (longDescription !== MISSING_LONG_DESCRIPTION) {
+                return `${longDescription} ${t(
+                    "statusCode:infoCode.longDescriptionAuxSuffix"
+                )}`;
+            }
+        }
+
+        return longDescription;
     }, [infoCodeDetails, t]);
 
     return (
@@ -133,12 +130,12 @@ export function ResultHeader(props: Props) {
                         <div className={"flex justify-center"}>
                             {expandDescription ? (
                                 <>
-                                    {t("common:hideDescription")}
+                                    {t("hideDescription")}
                                     <ChevronUpIcon className={"h-5 w-5"} />
                                 </>
                             ) : (
                                 <>
-                                    {t("common:showDescription")}
+                                    {t("showDescription")}
                                     <ChevronDownIcon className={"h-5 w-5"} />
                                 </>
                             )}

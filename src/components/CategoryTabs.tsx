@@ -35,7 +35,7 @@ const allTabs = [
         name: "Other",
         icon: <FingerPrintIcon />,
     },
-];
+] as const;
 
 type Props = {
     currentTab: string;

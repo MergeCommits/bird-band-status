@@ -4,6 +4,7 @@ import { getNonAuxMarkerVariant } from "birdCodes/infoCode/infoCodeLogic";
 import type {
     InfoCode,
     InfoCodeInput,
+    OtherOutputInfoCode,
 } from "birdCodes/infoCode/validInfoCodes";
 
 export function displayInfoCode(code: InfoCode): string {
@@ -20,25 +21,32 @@ export function getDetailsOfInfoCodeInputs(): {
     }));
 }
 
-export function getOutputCodeDetails(code: InfoCode): {
-    code: InfoCode;
-    nonAuxMarkerVariant?: InfoCodeInput;
-} {
+export function getOutputCodeDetails(code: InfoCode):
+    | {
+          code: InfoCodeInput & OtherOutputInfoCode;
+          includesAuxiliaryMarker: false;
+      }
+    | {
+          code: InfoCodeInput;
+          includesAuxiliaryMarker: true;
+      } {
     if (code in infoCodeInputDetails) {
         return {
-            code,
+            code: code as InfoCodeInput & OtherOutputInfoCode,
+            includesAuxiliaryMarker: false,
         };
     }
 
     const nonAuxMarkerVariant = getNonAuxMarkerVariant(code);
     if (nonAuxMarkerVariant !== null) {
         return {
-            code,
-            nonAuxMarkerVariant,
+            code: nonAuxMarkerVariant,
+            includesAuxiliaryMarker: true,
         };
     }
 
     return {
-        code,
+        code: code as InfoCodeInput & OtherOutputInfoCode,
+        includesAuxiliaryMarker: false,
     };
 }

@@ -49,5 +49,6 @@
         "react/jsx-fragments": "warn",
         "react/jsx-curly-brace-presence": ["warn", "always"],
         "react/prop-types": "off"
-    }
+    },
+    "ignorePatterns": ["src/@types/resources.d.ts"]
 }
