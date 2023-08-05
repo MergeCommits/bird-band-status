@@ -92,9 +92,9 @@ const Home: NextPage = () => {
                         }
                         onClick={() => {
                             if (router.locale === "en") {
-                                void router.push("/", "/", { locale: "fr" });
+                                void router.replace("/", "/", { locale: "fr" });
                             } else {
-                                void router.push("/", "/", { locale: "en" });
+                                void router.replace("/", "/", { locale: "en" });
                             }
                         }}
                     >
