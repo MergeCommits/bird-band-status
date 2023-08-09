@@ -14,10 +14,10 @@ jobs:
                   node-version: 16.x
 
             - name: Run install
-              uses: borales/actions-yarn@v4
+              uses: pnpm/action-setup@v2
               with:
-                  cmd: install --frozen-lockfile
+                version: 8
+                run_install: true
+                
             - name: Run tests
-              uses: borales/actions-yarn@v4
-              with:
-                  cmd: test
+              run: pnpm test
