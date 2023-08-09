@@ -56,11 +56,8 @@ function computeInfoCode(inputs: InfoCodeInput[]): InfoCode {
     }
 
     if (inputs.length === 1) {
-        const firstInputCode = inputs[0];
-        if (!firstInputCode) {
-            throw new Error("This should never happen");
-        }
-        return firstInputCode;
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        return inputs[0]!;
     }
 
     const allAuxMarkers = getAuxMarkers();
@@ -82,11 +79,8 @@ function computeInfoCode(inputs: InfoCodeInput[]): InfoCode {
         allNonAuxMarkers.includes(input)
     );
     if (nonAuxInputs.length === 1) {
-        const nonAuxInput = nonAuxInputs[0];
-        if (!nonAuxInput) {
-            throw new Error("This should never happen");
-        }
-        return getAuxVariantOfNonAuxMarker(nonAuxInput);
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        return getAuxVariantOfNonAuxMarker(nonAuxInputs[0]!);
     }
 
     return 85;
