@@ -4,7 +4,6 @@ import {
 } from "birdCodes/statusCode/validStatusCodes";
 import { useTranslation } from "next-i18next";
 import { useId } from "react";
-import { classNames } from "utils/tailwindUtils";
 
 type Props = {
     currentStatus: BirdStatusCode;
@@ -25,10 +24,11 @@ export function StatusCodeSelect(props: Props) {
             </label>
             <select
                 id={birdStatusID}
-                className={classNames(
-                    "w-full rounded-lg border border-gray-600 bg-secondary p-2.5 text-sm text-contrast placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500",
+                className={
+                    "w-full rounded-lg border border-gray-600 bg-secondary p-2.5 text-sm text-contrast placeholder-gray-400 focus:border-blue-500 focus:ring-blue-500" +
+                    " " +
                     "overflow-x-hidden" // Selected option with long text will generate invisible overflow on Safari
-                )}
+                }
                 value={props.currentStatus}
                 onChange={(event) => {
                     props.onStatusChange(

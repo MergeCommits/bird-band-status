@@ -2,7 +2,6 @@ import { displayInfoCode } from "birdCodes/infoCode/infoCodeDisplay";
 import type { InfoCodeInput } from "birdCodes/infoCode/validInfoCodes";
 import { MISSING_LONG_DESCRIPTION } from "components/ResultHeader";
 import { useTranslation } from "next-i18next";
-import { classNames } from "utils/tailwindUtils";
 
 type Props = {
     code: InfoCodeInput;
@@ -21,11 +20,11 @@ export function InfoCodeCard(props: Props) {
 
     return (
         <button
-            className={classNames(
-                "w-full max-w-4xl rounded-md border-2 bg-secondary p-6 hover:bg-secondary-light",
-                "transition duration-200 ease-in-out",
-                props.enabled ? "border-accent" : "border-transparent"
-            )}
+            role={"checkbox"}
+            className={
+                "w-full max-w-4xl rounded-md bg-secondary p-6 transition duration-200 ease-in-out hover:bg-secondary-light aria-checked:ring-2 aria-checked:ring-accent"
+            }
+            aria-checked={props.enabled}
             onClick={() => {
                 props.onToggle(props.code);
             }}

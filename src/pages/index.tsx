@@ -12,7 +12,6 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useMemo, useState } from "react";
-import { classNames } from "utils/tailwindUtils";
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
     return {
@@ -147,10 +146,9 @@ const Home: NextPage = () => {
                             onStatusChange={statusCodeHandler}
                         />
                         <button
-                            className={classNames(
-                                "rounded bg-red-500/[.3] px-4 py-2 font-bold text-white enabled:hover:bg-red-500/[.5] disabled:opacity-20",
-                                "transition duration-200 ease-in-out"
-                            )}
+                            className={
+                                "rounded bg-red-500/[.3] px-4 py-2 font-bold text-white transition duration-200 ease-in-out enabled:hover:bg-red-500/[.5] disabled:opacity-20"
+                            }
                             disabled={inputCodes.length === 0}
                             onClick={() => {
                                 setInputCode([]);

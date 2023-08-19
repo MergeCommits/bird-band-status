@@ -3,21 +3,14 @@ const infoInputCodes = [
     80, 81, 87, 90,
 ] as const;
 
+const auxiliaryInfoCode = [
+    10, 12, 15, 17, 19, 21, 29, 30, 34, 41, 71, 88,
+] as const;
+
 const OtherOutputInfoCodes = [0, 25, 85] as const;
 
 const infoCodes = [
-    10,
-    12,
-    15,
-    17,
-    19,
-    21,
-    29,
-    30,
-    34,
-    41,
-    71,
-    88,
+    ...auxiliaryInfoCode,
     ...infoInputCodes,
     ...OtherOutputInfoCodes,
 ] as const;

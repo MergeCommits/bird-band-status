@@ -1,51 +1,11 @@
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/20/solid";
-import {
-    InfoCodeDoesNotIncludeStatusCodeException,
-    InfoCodeExcludesStatusCodeException,
-} from "birdCodes/errors";
-import {
-    displayInfoCode,
-    getOutputCodeDetails,
-} from "birdCodes/infoCode/infoCodeDisplay";
-import { getInfoCode } from "birdCodes/infoCode/infoCodeLogic";
+import { displayInfoCode } from "birdCodes/infoCode/infoCodeDisplay";
 import type { InfoCodeInput } from "birdCodes/infoCode/validInfoCodes";
 import type { BirdStatusCode } from "birdCodes/statusCode/validStatusCodes";
-import type { TFunction } from "i18next";
+import { useInfoCode } from "hooks/useInfoCode";
+import { useInfoCodeDescription } from "hooks/useInfoCodeDescription";
 import { useTranslation } from "next-i18next";
-import { useMemo, useState } from "react";
-
-function useInfoCodeDetails(
-    statusCode: BirdStatusCode,
-    inputCodes: InfoCodeInput[],
-    t: TFunction<["common", "statusCode"]>
-): [ReturnType<typeof getOutputCodeDetails> | null, string] {
-    return useMemo(() => {
-        try {
-            const infoCode = getInfoCode(statusCode, inputCodes);
-            return [getOutputCodeDetails(infoCode), ""];
-        } catch (e) {
-            if (e instanceof InfoCodeDoesNotIncludeStatusCodeException) {
-                return [
-                    null,
-                    `${t("error.mismatchCodes", {
-                        statusCode: e.statusCode,
-                        infoCode: displayInfoCode(e.infoCode),
-                    })} ${t("error.infoCodeDoesNotInclude")}`,
-                ];
-            } else if (e instanceof InfoCodeExcludesStatusCodeException) {
-                return [
-                    null,
-                    `${t("error.mismatchCodes", {
-                        statusCode: e.statusCode,
-                        infoCode: displayInfoCode(e.infoCode),
-                    })} ${t("error.infoCodeExcludes")}`,
-                ];
-            } else {
-                return [null, t("error.unknown")];
-            }
-        }
-    }, [statusCode, inputCodes, t]);
-}
+import { useState } from "react";
 
 type Props = {
     statusCode: BirdStatusCode;
@@ -58,51 +18,16 @@ export function ResultHeader(props: Props) {
     const { t } = useTranslation(["common", "statusCode"]);
     const [expandDescription, setExpandDescription] = useState(false);
 
-    const [infoCodeDetails, errorMessage] = useInfoCodeDetails(
+    const [infoCode, errorMessage] = useInfoCode(
         props.statusCode,
         props.infoCodes,
         t
     );
 
-    const shortDescription = useMemo(() => {
-        if (infoCodeDetails === null) {
-            return "infoCodeDetails is null";
-        }
-
-        const shortDescription = t(
-            `statusCode:infoCode.${infoCodeDetails.code}.shortDescription`
-        );
-
-        if (infoCodeDetails.includesAuxiliaryMarker) {
-            return (
-                shortDescription +
-                t("statusCode:infoCode.shortDescriptionAuxSuffix")
-            );
-        }
-
-        return shortDescription;
-    }, [infoCodeDetails, t]);
-
-    const longDescription = useMemo(() => {
-        if (infoCodeDetails === null) {
-            return "infoCodeDetails is null";
-        }
-
-        const longDescription: string = t(
-            `statusCode:infoCode.${infoCodeDetails.code}.longDescription`,
-            MISSING_LONG_DESCRIPTION
-        );
-
-        if (infoCodeDetails.includesAuxiliaryMarker) {
-            if (longDescription !== MISSING_LONG_DESCRIPTION) {
-                return `${longDescription} ${t(
-                    "statusCode:infoCode.longDescriptionAuxSuffix"
-                )}`;
-            }
-        }
-
-        return longDescription;
-    }, [infoCodeDetails, t]);
+    const { shortDescription, longDescription } = useInfoCodeDescription(
+        infoCode,
+        t
+    );
 
     return (
         <div
@@ -110,14 +35,12 @@ export function ResultHeader(props: Props) {
                 "mb-8 flex w-full max-w-4xl flex-col items-center rounded-lg bg-secondary p-4"
             }
         >
-            {infoCodeDetails === null ? (
+            {infoCode === null ? (
                 <p className={"text-red-800"}>{errorMessage}</p>
             ) : (
                 <>
                     <h1 className={"text-8xl"}>
-                        {`${props.statusCode}${displayInfoCode(
-                            infoCodeDetails.code
-                        )}`}
+                        {`${props.statusCode}${displayInfoCode(infoCode)}`}
                     </h1>
                     <button
                         className={

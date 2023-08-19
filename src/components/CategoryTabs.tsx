@@ -8,7 +8,6 @@ import {
 } from "@heroicons/react/20/solid";
 import { useTranslation } from "next-i18next";
 import { useId } from "react";
-import { classNames } from "utils/tailwindUtils";
 
 const allTabs = [
     {
@@ -62,12 +61,9 @@ export function CategoryTabs(props: Props) {
                     onClick={() => {
                         props.onTabChange(category.name);
                     }}
-                    className={classNames(
-                        "flex items-center gap-2 border-b-2 px-5 py-2.5 text-sm font-medium leading-5 focus:outline-none",
-                        props.currentTab === category.name
-                            ? "border-b-accent font-bold text-accent"
-                            : "rounded-md border-b-transparent hover:bg-white/[0.12]"
-                    )}
+                    className={
+                        "flex items-center gap-2 rounded-md border-b-2 border-b-transparent px-5 py-2.5 text-sm font-medium leading-5 hover:bg-white/[0.12] focus:outline-none aria-selected:rounded-none aria-selected:border-b-accent aria-selected:text-accent aria-selected:hover:bg-transparent"
+                    }
                 >
                     <div className={"mx-auto h-5 w-5 shrink-0 basis-5"}>
                         {category.icon}
