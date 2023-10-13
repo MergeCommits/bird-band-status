@@ -1,0 +1,24 @@
+{
+    "dictionaries": ["technical", "birding"],
+    "dictionaryDefinitions": [
+        {
+            "addWords": true,
+            "name": "technical",
+            "path": "./cspell/technical.txt"
+        },
+        {
+            "addWords": true,
+            "name": "birding",
+            "path": "./cspell/birding.txt"
+        }
+    ],
+    "ignorePaths": [
+        ".next",
+        "node_modules",
+        "pnpm-lock.yaml",
+        ".vscode",
+        "src/@types/resources.d.ts",
+        "public/locales/fr"
+    ],
+    "ignoreWords": ["Jarjour"]
+}
