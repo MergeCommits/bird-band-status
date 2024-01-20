@@ -24,11 +24,14 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
     };
 };
 
+const defaultStatusCode = 3;
+
 const Home: NextPage = () => {
     const router = useRouter();
     const { t } = useTranslation();
 
-    const [statusCode, setStatusCode] = useState<BirdStatusCode>(3);
+    const [statusCode, setStatusCode] =
+        useState<BirdStatusCode>(defaultStatusCode);
     const statusCodeHandler = (code: BirdStatusCode) => {
         setStatusCode(code);
     };
@@ -149,8 +152,12 @@ const Home: NextPage = () => {
                             className={
                                 "rounded bg-red-500/[.3] px-4 py-2 font-bold text-white transition duration-200 ease-in-out enabled:hover:bg-red-500/[.5] disabled:opacity-20"
                             }
-                            disabled={inputCodes.length === 0}
+                            disabled={
+                                inputCodes.length === 0 &&
+                                statusCode === defaultStatusCode
+                            }
                             onClick={() => {
+                                setStatusCode(defaultStatusCode);
                                 setInputCode([]);
                             }}
                         >
