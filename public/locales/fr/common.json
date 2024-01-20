@@ -10,8 +10,9 @@
     "header": "Code d'état de baguage d'oiseaux",
     "headerSubtitle": "Calcule les codes à partir de : ",
     "headerNotice": "Cet outil n'est pas affilié au USGS Bird Banding Lab ou au Bureau de baguage des oiseaux du SCF.",
+    "featherSamplingsAndCloacalSwabsNotice": "REMARQUE: Les prélèvements de plumes et les écouvillons cloacaux n'ont pas d'incidence sur le code de statut.",
     "sourceCode": "Code source : ",
-    "selectStatusCode": "Sélectionnez un code d'état :",
+    "selectStatusCode": "Sélectionnez un code d'état:",
     "error": {
         "unknown": "Something went wrong",
         "mismatchCodes": "Le code d'état \"{{statusCode}}\" n'est pas valide avec le code de renseignements complémentaires  \"{{infoCode}}\" : ",

@@ -126,6 +126,9 @@ const Home: NextPage = () => {
                         </p>
                         <p className={"text-sm"}>{t("headerNotice")}</p>
                         <p className={"text-sm"}>
+                            {t("featherSamplingsAndCloacalSwabsNotice")}
+                        </p>
+                        <p className={"text-sm"}>
                             {t("sourceCode")}
                             <a
                                 className={"text-blue-500 hover:text-blue-700"}

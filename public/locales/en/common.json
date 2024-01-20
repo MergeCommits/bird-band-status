@@ -10,6 +10,7 @@
     "header": "Bird Banding status code",
     "headerSubtitle": "Computes the codes from: ",
     "headerNotice": "This tool is not affiliated with the USGS Bird Banding Lab or the CWS Bird Banding Office.",
+    "featherSamplingsAndCloacalSwabsNotice": "NOTE: Feather sampling and cloacal swabs do not affect the status code.",
     "sourceCode": "Source code: ",
     "selectStatusCode": "Select a status code:",
     "error": {
