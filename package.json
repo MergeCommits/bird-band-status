@@ -63,7 +63,7 @@
         "*.{mjs,cjs,ts,tsx}": "eslint --cache --fix",
         "*.{mjs,cjs,ts,tsx,prisma,css,md,json,env.*}": [
             "prettier --write",
-            "cspell --cache"
+            "cspell --cache --no-must-find-files"
         ]
     }
 }
